@@ -49,32 +49,6 @@ public class BaseBall : MonoBehaviour
         } 
     }
 
-   public virtual void SetInfected()
-   {
-        m_cachedTriggerRadius = infectedSetting.triggerRadius;
-        m_cachedLifeTime = infectedSetting.lifeTime;
-        m_cachedVirusLevel = infectedSetting.virusLevel;
-        m_cachedSpeed = infectedSetting.speed;
-
-        infected = true;
-        StartCoroutine(ScaleUp());
-    }
-
-    public virtual void SetHealed()
-    {
-        m_cachedTriggerRadius = citizenSetting.triggerRadius;
-        m_cachedLifeTime = citizenSetting.lifeTime;
-        m_cachedVirusLevel = citizenSetting.virusLevel;
-        m_cachedSpeed = citizenSetting.speed;
-        StartCoroutine(ScaleToNormal());
-    }
-
-    protected virtual void OnDeath()
-    {
-        dead = true; 
-        Debug.Log("I Died!");
-    }
-    
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (infected)
@@ -95,6 +69,32 @@ public class BaseBall : MonoBehaviour
                 }
             }
         }
+    }
+
+    public virtual void SetInfected()
+    {
+        m_cachedTriggerRadius = infectedSetting.triggerRadius;
+        m_cachedLifeTime = infectedSetting.lifeTime;
+        m_cachedVirusLevel = infectedSetting.virusLevel;
+        m_cachedSpeed = infectedSetting.speed;
+
+        infected = true;
+        StartCoroutine(ScaleUp());
+    }
+
+    public virtual void SetHealed()
+    {
+        m_cachedTriggerRadius = citizenSetting.triggerRadius;
+        m_cachedLifeTime = citizenSetting.lifeTime;
+        m_cachedVirusLevel = citizenSetting.virusLevel;
+        m_cachedSpeed = citizenSetting.speed;
+        StartCoroutine(ScaleToNormal());
+    }
+
+    protected virtual void OnDeath()
+    {
+        dead = true;
+        Debug.Log("I Died!");
     }
 
     public IEnumerator ScaleUp()
