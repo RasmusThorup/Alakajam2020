@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class BallMovement : MonoBehaviour
+public class BallMovement_Sphere : MonoBehaviour
 {
+    public Vector2 gameAreaCenter;
+    public float gameAreaRadius;
+
     public BaseBall baseBall;
     public float sphereRadius = 0.5f;
     Transform myTransform;
     Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
     Vector2 currentPos;
     Vector2 currentDir;
+    Vector2 reflectNormal;
     
 
     void Awake()
@@ -26,6 +31,23 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         currentPos = myTransform.position;
+
+        if (Vector2.Distance(currentPos,gameAreaCenter) >= gameAreaRadius-sphereRadius)
+        {
+            //Ball outside gamearea, reflect
+            reflectNormal = currentPos - gameAreaCenter;
+            currentDir = Reflect(currentDir, reflectNormal);
+
+            float vX = currentPos.x - gameAreaCenter.x;
+            float vY = currentPos.y - gameAreaCenter.y;
+            float magV = Mathf.Sqrt(vX*vX + vY*vY);
+            float aX = gameAreaCenter.x + vX / magV * (gameAreaRadius-sphereRadius);
+            float aY = gameAreaCenter.y + vY / magV * (gameAreaRadius-sphereRadius);
+
+            myTransform.position = new Vector3(aX, aY, 0);
+        }
+
+        /*
         gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
 
         if (currentPos.y-sphereRadius <= gameAreaOuterEdges.z)
@@ -60,9 +82,10 @@ public class BallMovement : MonoBehaviour
             //Ball is inside playable area
         }
 
+        */
         Vector3 dir = new Vector3 (currentDir.x, currentDir.y,0);
-        myTransform.position += dir * baseBall.m_cachedSpeed * Time.deltaTime;
-        //myTransform.position += dir * 10 * Time.deltaTime;
+        //myTransform.position += dir * baseBall.m_cachedSpeed * Time.deltaTime;
+        myTransform.position += dir * 15 * Time.deltaTime;
     }
     void init()
     {
