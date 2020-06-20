@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7346974814902169019}
-  - component: {fileID: 4270674155804179991}
+  - component: {fileID: 9034370458037841336}
   - component: {fileID: 3326757670394401694}
   - component: {fileID: -7432571408827847800}
   m_Layer: 0
@@ -114,7 +114,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4270674155804179991
+--- !u!114 &9034370458037841336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7489296158304646131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e4713b5d332456f9684672852e07d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 74611dd37d586434e842ed0800051efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
@@ -151,9 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b665d98422ee43688d81b37fd30bad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBall: {fileID: 4270674155804179991}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  baseBall: {fileID: 0}
+  sphereRadius: 0.5
 --- !u!54 &-7432571408827847800
 Rigidbody:
   m_ObjectHideFlags: 0
