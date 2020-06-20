@@ -10,10 +10,10 @@ public class SimpleBall : BaseBall
         this.gameObject.SetActive(false);
     }
 
-    protected override void OnInfected()
+    protected override void SetInfected()
     {
-        base.OnInfected();
-        triggerArea.transform.localScale = transform.localScale * triggerRadius; 
+        base.SetInfected();
+        triggerArea.transform.localScale = transform.localScale * m_cachedTriggerRadius; 
     }
     
 }
