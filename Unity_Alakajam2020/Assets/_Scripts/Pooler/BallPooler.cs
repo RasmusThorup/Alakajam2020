@@ -58,6 +58,11 @@ public class BallPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = new Vector3(position.x, position.y, 0);
 
+        IPooledObject pooledObj = objectToSpawn.GetComponent<IPooledObject>();
+
+        if (pooledObj != null)
+            pooledObj.OnObjectSpawn();
+
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
