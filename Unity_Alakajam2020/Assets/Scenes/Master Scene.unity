@@ -1411,6 +1411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleBall
       objectReference: {fileID: 0}
+    - target: {fileID: 9034370458037841336, guid: f18da78e9c14b4cf78173e918c2d8ace,
+        type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18da78e9c14b4cf78173e918c2d8ace, type: 3}
 --- !u!1001 &1027471483
@@ -1657,6 +1662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1111263142}
+  UiManager: {fileID: 0}
   gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1111263141
 Transform:
@@ -2517,6 +2523,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5307001910506112879, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307001910506112879, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307001910506112879, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307001910506112879, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5912945636783389840, guid: 63152dcbcec96d0438267c19e935ca61,
         type: 3}
       propertyPath: m_IsActive
