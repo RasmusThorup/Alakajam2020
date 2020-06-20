@@ -140,9 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1001 &122312349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,9 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1001 &152758200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,12 +245,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
@@ -323,12 +319,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
@@ -397,12 +393,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
@@ -461,12 +457,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a312478b4d8b8a1438b62c90b0621cf2, type: 3}
---- !u!223 &351306191 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 5912945637606568005, guid: 63152dcbcec96d0438267c19e935ca61,
-    type: 3}
-  m_PrefabInstance: {fileID: 5912945637068300231}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539396519
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,9 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1 &760643947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1795619268887418119, guid: a312478b4d8b8a1438b62c90b0621cf2,
@@ -566,9 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1 &822045220
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,9 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1 &902719552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1795619268887418119, guid: a312478b4d8b8a1438b62c90b0621cf2,
@@ -722,9 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1 &1016263169
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1111263142}
+  gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1111263141
 Transform:
   m_ObjectHideFlags: 0
@@ -947,9 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: 0}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!1001 &1368533063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,12 +941,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
@@ -1034,12 +1015,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
@@ -1190,11 +1171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f888fcefa2967847969d7cda8cc44d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 351306191}
+  gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
   meshFilter: {fileID: 1553830774}
   gameAreaSize: {x: 0, y: 0}
-  yOffset: 20
   offset: {x: 0, y: 20}
+  padding: {x: 10, y: 15}
 --- !u!1001 &2113063427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1205,12 +1186,12 @@ PrefabInstance:
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.72
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 1795619268887418115, guid: a312478b4d8b8a1438b62c90b0621cf2,
         type: 3}
