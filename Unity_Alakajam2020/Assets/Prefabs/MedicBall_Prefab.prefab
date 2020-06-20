@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dacc244ee11804cb48ce71fc9099798b, type: 2}
+  - {fileID: 2100000, guid: 8370fd8cd28cf45ae90292813c749d6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,7 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35762f737d98043409018187ceea14c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infectedSetup: {fileID: 11400000, guid: dee3a7cfe2b1840e0a4ff3f3d568002c, type: 2}
+  infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
+  citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
@@ -180,8 +181,9 @@ MonoBehaviour:
   infected: 0
   dead: 0
   debug: 0
+  isMedic: 0
   animationSpeed: 0.2
-  overrideSettings: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
+  classSetting: {fileID: 11400000, guid: dee3a7cfe2b1840e0a4ff3f3d568002c, type: 2}
 --- !u!1 &6386718722833661969
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50eb20abf5c540d478112bcf61dc503a, type: 2}
+  - {fileID: 2100000, guid: e1bd9cac0a9b84e2b98ab48e94643142, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

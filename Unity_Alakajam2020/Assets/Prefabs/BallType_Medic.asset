@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514a10562356343b19e589c85a65b735, type: 3}
   m_Name: BallType_Medic
   m_EditorClassIdentifier: 
-  lifeTime: 25
+  lifeTime: 3000
   triggerRadius: 7
-  virusLevel: 20
+  virusLevel: 200000
   speed: 3

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class BaseBall : MonoBehaviour
 {
-    public InfectedSettings infectedSetup;
+    public InfectedSettings infectedSetting;
+    public InfectedSettings citizenSetting;
 
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
-    public int m_cachedVirusLevel;
+    public float m_cachedVirusLevel;
     public int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
@@ -23,11 +24,6 @@ public class BaseBall : MonoBehaviour
     public virtual void OnEnable()
     {
         dead = false;
-
-        m_cachedTriggerRadius = infectedSetup.triggerRadius;
-        m_cachedLifeTime = infectedSetup.lifeTime;
-        m_cachedVirusLevel = infectedSetup.virusLevel;
-        m_cachedSpeed = infectedSetup.speed;
     }
 
    public virtual void Update()
@@ -58,20 +54,31 @@ public class BaseBall : MonoBehaviour
 
    public virtual void SetInfected()
    {
-        m_cachedTriggerRadius = infectedSetup.triggerRadius;
-        m_cachedLifeTime = infectedSetup.lifeTime;
-        m_cachedVirusLevel = infectedSetup.virusLevel;
-        m_cachedSpeed = infectedSetup.speed;
+        m_cachedTriggerRadius = infectedSetting.triggerRadius;
+        m_cachedLifeTime = infectedSetting.lifeTime;
+        m_cachedVirusLevel = infectedSetting.virusLevel;
+        m_cachedSpeed = infectedSetting.speed;
 
         infected = true;
+        StartCoroutine(ScaleUp());
+        Debug.Log(gameObject.name + " scaled up!");
         //Debug.Log("Im Infected!");
     }
 
+    public virtual void SetHealed()
+    {
+        m_cachedTriggerRadius = citizenSetting.triggerRadius;
+        m_cachedLifeTime = citizenSetting.lifeTime;
+        m_cachedVirusLevel = citizenSetting.virusLevel;
+        m_cachedSpeed = citizenSetting.speed;
+        StartCoroutine(ScaleToNormal());
+        Debug.Log(gameObject.name + " is healed");
+    }
 
     protected virtual void OnDeath()
     {
         dead = true; 
-       // Debug.Log("I Died!");
+        Debug.Log("I Died!");
     }
     
     protected virtual void OnTriggerEnter(Collider other)
@@ -82,12 +89,14 @@ public class BaseBall : MonoBehaviour
 
             if (otherBall == null || otherBall.isMedic)
             {
+                Debug.Log("Hit medic");
                 return; 
             }
             
             if (!otherBall.infected)
             {
-                int infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+                float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+                Debug.Log("Infectchance " + infectChance);
                 if (Random.value < infectChance)
                 {
                     otherBall.SetInfected();
@@ -99,6 +108,10 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator ScaleUp()
     {
+        if (true)
+        {
+
+        }
         Vector3 originalSize = triggerArea.transform.localScale;
         float elapsedTime = 0f;
 
@@ -115,7 +128,7 @@ public class BaseBall : MonoBehaviour
 
     }
 
-    public IEnumerator ScaleDown()
+    public IEnumerator DeathAnimation()
     {
         Vector3 originalSize = this.transform.localScale;
         Vector3 targetSize = Vector3.zero;
@@ -132,6 +145,26 @@ public class BaseBall : MonoBehaviour
 
         this.transform.localScale = targetSize;
         this.gameObject.SetActive(false);
+    }
+
+    public IEnumerator ScaleToNormal()
+    {
+        Debug.Log(gameObject.name + " DIED!");
+        Vector3 originalSize = triggerArea.transform.localScale;
+        Vector3 targetSize = new Vector3(1,1,1);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationSpeed)
+        {
+            triggerArea.transform.localScale = Vector3.Lerp(originalSize, targetSize,
+                (elapsedTime / animationSpeed));
+            elapsedTime += Time.deltaTime;
+            Debug.Log("the scale size is: " + triggerArea.transform.localScale);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        this.transform.localScale = targetSize;
     }
 }
 
