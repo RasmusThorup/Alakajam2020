@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    private Transform myTransform;
-    public BaseBall baseBall; 
-        
-    [Tooltip("X & Y = min og max værdierne på x-aksen, Z & W = min og max værdierne på y-aksen")]
-    private Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
-    public Vector2 currentPos;
-    public Vector2 currentDir;
+    public BaseBall baseBall;
+    public float sphereRadius = 0.5f;
+    Transform myTransform;
+    Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
+    Vector2 currentPos;
+    Vector2 currentDir;
     
+
     void Awake()
     {
         myTransform = transform;
@@ -28,31 +28,31 @@ public class BallMovement : MonoBehaviour
         currentPos = myTransform.position;
         gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
 
-        if (currentPos.y <= gameAreaOuterEdges.z)
+        if (currentPos.y-sphereRadius <= gameAreaOuterEdges.z)
         {
             //Debug.Log("Ball Outside y lower edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.z,0);
+            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.z+sphereRadius,0);
             currentDir = Reflect(currentDir, Vector2.up);
 
         }
-        else if (currentPos.x <= gameAreaOuterEdges.x)
+        else if (currentPos.x-sphereRadius <= gameAreaOuterEdges.x)
         {
             //Debug.Log("Ball Outside x left edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.x,myTransform.position.y,0);
+            myTransform.position = new Vector3(gameAreaOuterEdges.x+sphereRadius,myTransform.position.y,0);
             currentDir = Reflect(currentDir, Vector2.right);
 
         }
-        else if (currentPos.y >= gameAreaOuterEdges.w)
+        else if (currentPos.y+sphereRadius >= gameAreaOuterEdges.w)
         {
             //Debug.Log("Ball Outside y upper edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.w,0);
+            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.w-sphereRadius,0);
             currentDir = Reflect(currentDir, -Vector2.up);
             
         }
-        else if (currentPos.x >= gameAreaOuterEdges.y)
+        else if (currentPos.x+sphereRadius >= gameAreaOuterEdges.y)
         {
             //Debug.Log("Ball Outside x right edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.y,myTransform.position.y,0);
+            myTransform.position = new Vector3(gameAreaOuterEdges.y-sphereRadius,myTransform.position.y,0);
             currentDir = Reflect(currentDir, -Vector2.right);           
         }
         else
