@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayableArea : MonoBehaviour
 {
+    public bool generateMesh;
     public Vector4 gameAreaEdges;
     public MeshFilter meshFilter;
     public Vector2 gameAreaSize;
@@ -13,6 +14,8 @@ public class PlayableArea : MonoBehaviour
     Mesh mesh;
     Vector3[] vertices;
     int[] triangles;
+
+    Vector2[] uv;
 
     public Vector2 offset = new Vector2(0,3);
     public Vector2 padding = new Vector2(10,15);
@@ -36,8 +39,6 @@ public class PlayableArea : MonoBehaviour
         if (oldAspect == mainCam.aspect) //Early out if aspect hasn't changed
             return;
 
-        Debug.Log("Update");
-
         float height = 2.0f * Mathf.Tan(0.5f * mainCam.fieldOfView * Mathf.Deg2Rad)* 40.0f;
         float width = height * mainCam.aspect;
 
@@ -47,6 +48,12 @@ public class PlayableArea : MonoBehaviour
         float y = gameAreaSize.y*0.5f;
         gameAreaEdges = new Vector4(-x+offset.x,x+offset.x,-y+offset.y,y+offset.y);
         
+        oldAspect = mainCam.aspect;
+        GameManager.Instance.gameAreaEdges = gameAreaEdges;
+
+        if (!generateMesh)
+            return;
+
         vertices = new Vector3[]
         {
             new Vector3 (gameAreaEdges.x,gameAreaEdges.z,0),
@@ -55,9 +62,13 @@ public class PlayableArea : MonoBehaviour
             new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0)
         };
 
+        uv = new Vector2[vertices.Length];
+        for (int i = 0; i < uv.Length; i++)
+        {
+            uv[i] = new Vector2(vertices[i].y, vertices[i].x);
+        }
+
         UpdateMesh();
-        oldAspect = mainCam.aspect;
-        GameManager.Instance.gameAreaEdges = gameAreaEdges;
     }
 
     void UpdateMesh()
@@ -68,5 +79,6 @@ public class PlayableArea : MonoBehaviour
         mesh.triangles = triangles;
 
         mesh.RecalculateNormals();
+        mesh.uv = uv;
     }
 }

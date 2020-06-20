@@ -127,8 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: -8476884334621252468}
-  currentPos: {x: 0, y: 0}
-  currentDir: {x: 0, y: 0}
+  sphereRadius: 0.5
 --- !u!54 &-7432571408827847800
 Rigidbody:
   m_ObjectHideFlags: 0

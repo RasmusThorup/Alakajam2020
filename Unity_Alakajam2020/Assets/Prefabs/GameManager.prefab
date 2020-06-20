@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 5527171189731329128}
+  UiManager: {fileID: 0}
+  gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &5527171189731329128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: 
-    prefab: {fileID: 0}
-    size: 0
+  - tag: Debug
+    prefab: {fileID: 7489296158304646131, guid: 327d2682ac95c41d2a3025b14f2cea70,
+      type: 3}
+    size: 70

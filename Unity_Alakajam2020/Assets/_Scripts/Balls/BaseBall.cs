@@ -77,7 +77,7 @@ public class BaseBall : MonoBehaviour
         m_cachedLifeTime = infectedSetting.lifeTime;
         m_cachedVirusLevel = infectedSetting.virusLevel;
         m_cachedSpeed = infectedSetting.speed;
-
+        GameManager.Instance.scoreManager.IncreaseScore(100);
         infected = true;
         StartCoroutine(ScaleUp());
     }
