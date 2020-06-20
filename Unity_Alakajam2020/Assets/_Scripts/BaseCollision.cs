@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class BaseCollision : MonoBehaviour
 {
-    
-    public 
-    
-    
+
     public virtual void OnCollisionEnter(Collision other)
     {
         
