@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 35762f737d98043409018187ceea14c4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - infectedSetup: {fileID: 11400000, guid: dee3a7cfe2b1840e0a4ff3f3d568002c, type: 2}
+  - triggerArea: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,9 +3,14 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}" PersistMode="Standalone">
 			<ChildrenList>
-				<RandomSequenceContainer Name="Scat" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" ShortID="66676473">
+				<RandomSequenceContainer Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" ShortID="66676473">
 					<PropertyList>
-						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-300</Value>
+							</ValueList>
+						</Property>
+						<Property Name="PlayMechanismLoopCount" Type="int32" Value="1"/>
 						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 					</PropertyList>
 					<ReferenceList>
@@ -18,6 +23,13 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="Scat_demo_01" ID="{79768A2A-BD21-40A2-AD32-04D4630B53BE}" ShortID="748006391">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -238,6 +250,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_11" ID="{74E4064A-E6FB-4D98-8488-6CE2640C0850}" ShortID="177217626">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -260,6 +279,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_12" ID="{679EEB65-4619-441E-AA13-CD011CDAC9E7}" ShortID="612418703">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -282,6 +308,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_13" ID="{6BA689F8-4ACF-4C6B-9726-EC9A6C1F3C66}" ShortID="86381216">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -304,6 +337,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_14" ID="{44B0CACF-CB3F-4460-B2F1-FF4929C519DA}" ShortID="93976596">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -326,6 +366,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_15" ID="{8E75816D-43E0-4C17-8538-C72882B21665}" ShortID="616950681">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -348,6 +395,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_16" ID="{FA0C7FDD-DA20-44A0-9D2C-B6F994F9FE9C}" ShortID="19468095">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -370,6 +424,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_17" ID="{55EBEB3D-E91D-4FCF-9E32-F57D48DDF221}" ShortID="742937622">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -392,6 +453,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_18" ID="{2BF93D76-DB08-49F5-AD49-14E9E2BC53EB}" ShortID="424334135">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -414,6 +482,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_19" ID="{64A33FFD-9189-4FA4-A9DE-47B05BEE4003}" ShortID="161993573">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -436,6 +511,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_20" ID="{281693FF-4EAC-4089-8F31-4DB5AEC2888B}" ShortID="552247553">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>40</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -458,6 +540,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Scat_demo_21" ID="{431AA90C-777A-4155-850D-31E0668E0820}" ShortID="892822097">
+							<PropertyList>
+								<Property Name="Weight" Type="Real64">
+									<ValueList>
+										<Value>40</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
@@ -468,6 +557,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Scat_demo_21" ID="{151CE3CD-5325-4904-B6F8-E0A39F823011}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0356127025462963"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.214771990740741"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Scat_test\Scat_demo_21.wav</AudioFile>
 									<MediaIDList>

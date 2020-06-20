@@ -6,20 +6,28 @@ using UnityEngine;
 public class BaseBall : MonoBehaviour
 {
     public InfectedSettings infectedSetup;
-    protected float m_cachedLifeTime; 
-    protected float m_cachedTriggerRadius;
-    protected int m_cachedVirusLevel = 0;
+
+    public float m_cachedLifeTime;
+    public float m_cachedTriggerRadius;
+    public int m_cachedVirusLevel;
     public int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
     public bool dead;
-    public bool debug = false; 
+    public bool debug = false;
+
+    public bool isMedic;
+    public float animationSpeed = 0.2f;
 
 
-    private void OnEnable()
+    public virtual void OnEnable()
     {
         dead = false;
-        m_cachedSpeed = infectedSetup.speed; 
+
+        m_cachedTriggerRadius = infectedSetup.triggerRadius;
+        m_cachedLifeTime = infectedSetup.lifeTime;
+        m_cachedVirusLevel = infectedSetup.virusLevel;
+        m_cachedSpeed = infectedSetup.speed;
     }
 
    public virtual void Update()
@@ -66,13 +74,13 @@ public class BaseBall : MonoBehaviour
        // Debug.Log("I Died!");
     }
     
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (infected)
         {
             BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-            if (otherBall == null)
+            if (otherBall == null || otherBall.isMedic)
             {
                 return; 
             }
@@ -87,6 +95,43 @@ public class BaseBall : MonoBehaviour
             }
            
         }
+    }
+
+    public IEnumerator ScaleUp()
+    {
+        Vector3 originalSize = triggerArea.transform.localScale;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationSpeed)
+        {
+            triggerArea.transform.localScale = Vector3.Lerp(originalSize, originalSize * m_cachedTriggerRadius,
+                (elapsedTime / animationSpeed));
+            elapsedTime += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        triggerArea.transform.localScale = originalSize * m_cachedTriggerRadius;
+
+    }
+
+    public IEnumerator ScaleDown()
+    {
+        Vector3 originalSize = this.transform.localScale;
+        Vector3 targetSize = Vector3.zero;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationSpeed)
+        {
+            this.transform.localScale = Vector3.Lerp(originalSize, targetSize,
+                (elapsedTime / animationSpeed));
+            elapsedTime += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        this.transform.localScale = targetSize;
+        this.gameObject.SetActive(false);
     }
 }
 
