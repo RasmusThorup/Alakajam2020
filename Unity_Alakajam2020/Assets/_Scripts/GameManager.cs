@@ -5,7 +5,8 @@ using NaughtyAttributes;
 
 public class GameManager : MonoBehaviour
 {
-    public ScoreManager scoreManager; 
+    public ScoreManager scoreManager;
+    public UIManager UiManager; 
 
     public Vector4 gameAreaEdges;
 
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         _instance = this;
     }
 }

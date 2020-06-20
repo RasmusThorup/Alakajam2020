@@ -21,8 +21,7 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int scoreValue)
     {
         currentScore += scoreValue;
-        
-        //TODO: Set Score In UI Somewhere. 
+        GameManager.Instance.UiManager.score.SetText(currentScore.ToString());
     }
 
     public int GetHighScore()
