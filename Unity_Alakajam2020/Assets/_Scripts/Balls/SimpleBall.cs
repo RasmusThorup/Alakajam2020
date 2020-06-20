@@ -12,7 +12,7 @@ public class SimpleBall : BaseBall
         StartCoroutine(ScaleDown()); 
     }
 
-    protected override void SetInfected()
+    public override void SetInfected()
     {
         
         if (infected)

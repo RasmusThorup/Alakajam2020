@@ -5,29 +5,33 @@ using UnityEngine;
 
 public class BaseBall : MonoBehaviour
 {
-
     public InfectedSettings infectedSetup;
     protected float m_cachedLifeTime; 
     protected float m_cachedTriggerRadius;
     protected int m_cachedVirusLevel = 0;
-    protected int m_cachedSpeed;
+    public int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
     public bool dead;
+    public bool debug = false; 
 
 
     private void OnEnable()
     {
-        dead = false; 
+        dead = false;
+        m_cachedSpeed = infectedSetup.speed; 
     }
 
    public virtual void Update()
     {
-
-        if (Input.anyKey)
+        if (debug)
         {
-            SetInfected();
+            if (Input.anyKey)
+            {
+                SetInfected();
+            }
         }
+       
         
         if (infected)
         {
@@ -44,7 +48,7 @@ public class BaseBall : MonoBehaviour
         
     }
 
-   protected virtual void SetInfected()
+   public virtual void SetInfected()
    {
         m_cachedTriggerRadius = infectedSetup.triggerRadius;
         m_cachedLifeTime = infectedSetup.lifeTime;
@@ -52,27 +56,27 @@ public class BaseBall : MonoBehaviour
         m_cachedSpeed = infectedSetup.speed;
 
         infected = true;
-        Debug.Log("Im Infected!");
+        //Debug.Log("Im Infected!");
     }
 
 
     protected virtual void OnDeath()
     {
         dead = true; 
-        Debug.Log("I Died!");
+       // Debug.Log("I Died!");
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if (infected)
         {
-            BaseBall otherBall = other.GetComponent<BaseBall>();
+            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
             if (otherBall == null)
             {
                 return; 
             }
-            //TODO: Calculate if ball should be infected 
+            
             if (!otherBall.infected)
             {
                 int infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   lifeTime: 10
-  triggerRadius: 10
-  chanceToInfect: 100
-  virusResistance: 0
+  triggerRadius: 4
+  virusLevel: 50
+  speed: 10

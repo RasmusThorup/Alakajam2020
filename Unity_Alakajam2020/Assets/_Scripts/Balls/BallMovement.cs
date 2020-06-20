@@ -5,24 +5,16 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     private Transform myTransform;
-    public float speed;
+    public BaseBall baseBall; 
+        
     [Tooltip("X & Y = min og max værdierne på x-aksen, Z & W = min og max værdierne på y-aksen")]
     public Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
     public Vector2 currentPos;
     public Vector2 currentDir;
-    public float ballRadius = 0.5f;
-
-    private Rigidbody rb;
-
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         myTransform = transform;
-        rb = GetComponent<Rigidbody>();
-
-        //init();
-        //ChangeDirection(myTransform.up);
     }
 
     void OnEnable()
@@ -30,8 +22,7 @@ public class BallMovement : MonoBehaviour
         init();
         currentPos = myTransform.position;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         currentPos = myTransform.position;
@@ -69,7 +60,7 @@ public class BallMovement : MonoBehaviour
         }
 
         Vector3 dir = new Vector3 (currentDir.x, currentDir.y,0);
-        myTransform.position += dir * speed * Time.deltaTime;
+        myTransform.position += dir * baseBall.m_cachedSpeed * Time.deltaTime;
     }
     void init()
     {
@@ -87,6 +78,4 @@ public class BallMovement : MonoBehaviour
     {
         return inDir-2*(Vector2.Dot(inDir,normal)/Vector2.Dot(normal,normal))*normal;
     }
-
-
 }
