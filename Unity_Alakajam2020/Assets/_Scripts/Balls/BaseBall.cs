@@ -99,6 +99,10 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator ScaleUp()
     {
+        if (triggerArea.transform.localScale.x >= m_cachedTriggerRadius)
+        {
+            yield return null;
+        }
         Vector3 originalSize = triggerArea.transform.localScale;
         float elapsedTime = 0f;
 

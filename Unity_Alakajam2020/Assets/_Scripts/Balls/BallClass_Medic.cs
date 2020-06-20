@@ -33,7 +33,7 @@ public class BallClass_Medic : BaseBall
             }
             else
             {
-                SetInfected();
+                OnDeath();
             }
         }
     }
@@ -47,7 +47,7 @@ public class BallClass_Medic : BaseBall
         }
         //infected = overrideSettings;
 
-
+        StartCoroutine(ScaleToNormal());
         base.SetInfected();
     }
 

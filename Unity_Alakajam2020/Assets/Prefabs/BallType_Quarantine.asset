@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514a10562356343b19e589c85a65b735, type: 3}
   m_Name: BallType_Quarantine
   m_EditorClassIdentifier: 
-  lifeTime: 35
-  triggerRadius: 3
+  lifeTime: 40
+  triggerRadius: 6
   virusLevel: 15
   speed: 0

@@ -8,10 +8,14 @@ public class QuarantineBall : BaseBall
 
     public override void OnEnable()
     {
-        //m_cachedTriggerRadius = classSetting.triggerRadius;
-        //m_cachedLifeTime = classSetting.lifeTime;
-        //m_cachedVirusLevel = classSetting.virusLevel;
-        //m_cachedSpeed = classSetting.speed;
+        m_cachedTriggerRadius = classSetting.triggerRadius;
+        m_cachedLifeTime = classSetting.lifeTime;
+        m_cachedVirusLevel = classSetting.virusLevel;
+        m_cachedSpeed = classSetting.speed;
+
+        infected = true;
+        base.OnEnable();
+        StartCoroutine(ScaleUp());
     }
 
     public override void SetInfected()
@@ -20,11 +24,9 @@ public class QuarantineBall : BaseBall
         {
             return;
         }
-        infected = classSetting;
 
         base.SetInfected();
         m_cachedSpeed = 0;
-        //StartCoroutine(ScaleUp());
 
     }
 
