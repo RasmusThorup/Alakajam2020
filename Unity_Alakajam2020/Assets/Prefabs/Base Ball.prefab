@@ -52,7 +52,7 @@ MeshRenderer:
   m_GameObject: {fileID: 1795619268887418119}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -114,6 +114,7 @@ MonoBehaviour:
   triggerRadius: 10
   triggerCollider: {fileID: -2823487356985003253}
   infected: 0
+  dead: 0
   chanceToInfect: 0
   virusResistance: 0
 --- !u!135 &-2823487356985003253
