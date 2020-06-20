@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBall: {fileID: -8476884334621252468}
-  gameAreaOuterEdges: {x: 0, y: 40, z: 0, w: 25}
   currentPos: {x: 0, y: 0}
   currentDir: {x: 0, y: 0}
 --- !u!54 &-7432571408827847800
@@ -158,13 +157,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4066d4f83ff97472f9d13fa7b8debb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infectedSetup: {fileID: 11400000, guid: 5e0674b0aa86a44259915d57ecc3e02c, type: 2}
+  infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
+  citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  m_cachedLifeTime: 0
+  m_cachedTriggerRadius: 0
+  m_cachedVirusLevel: 0
   m_cachedSpeed: 0
   triggerArea: {fileID: 8107083263521043753}
   infected: 0
   dead: 0
   debug: 0
+  isMedic: 0
   animationSpeed: 0.2
+  classSetting: {fileID: 11400000, guid: 5130296849e6b46939ecb27927899b33, type: 2}
 --- !u!1 &8107083263521043753
 GameObject:
   m_ObjectHideFlags: 0

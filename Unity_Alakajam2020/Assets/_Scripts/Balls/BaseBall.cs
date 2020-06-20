@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class BaseBall : MonoBehaviour
 {
-    public InfectedSettings infectedSetup;
+    public InfectedSettings infectedSetting;
+    public InfectedSettings citizenSetting;
 
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
-    public int m_cachedVirusLevel;
+    public float m_cachedVirusLevel;
     public int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
@@ -23,14 +24,9 @@ public class BaseBall : MonoBehaviour
     public virtual void OnEnable()
     {
         dead = false;
-
-        m_cachedTriggerRadius = infectedSetup.triggerRadius;
-        m_cachedLifeTime = infectedSetup.lifeTime;
-        m_cachedVirusLevel = infectedSetup.virusLevel;
-        m_cachedSpeed = infectedSetup.speed;
     }
 
-   public virtual void Update()
+    public virtual void Update()
     {
         if (debug)
         {
@@ -40,7 +36,6 @@ public class BaseBall : MonoBehaviour
             }
         }
        
-        
         if (infected)
         {
             if (m_cachedLifeTime <= 0)
@@ -50,28 +45,34 @@ public class BaseBall : MonoBehaviour
                     OnDeath();
                 }
             }
-            
             m_cachedLifeTime -= Time.deltaTime;
-        }
-        
+        } 
     }
 
    public virtual void SetInfected()
    {
-        m_cachedTriggerRadius = infectedSetup.triggerRadius;
-        m_cachedLifeTime = infectedSetup.lifeTime;
-        m_cachedVirusLevel = infectedSetup.virusLevel;
-        m_cachedSpeed = infectedSetup.speed;
+        m_cachedTriggerRadius = infectedSetting.triggerRadius;
+        m_cachedLifeTime = infectedSetting.lifeTime;
+        m_cachedVirusLevel = infectedSetting.virusLevel;
+        m_cachedSpeed = infectedSetting.speed;
 
         infected = true;
-        //Debug.Log("Im Infected!");
+        StartCoroutine(ScaleUp());
     }
 
+    public virtual void SetHealed()
+    {
+        m_cachedTriggerRadius = citizenSetting.triggerRadius;
+        m_cachedLifeTime = citizenSetting.lifeTime;
+        m_cachedVirusLevel = citizenSetting.virusLevel;
+        m_cachedSpeed = citizenSetting.speed;
+        StartCoroutine(ScaleToNormal());
+    }
 
     protected virtual void OnDeath()
     {
         dead = true; 
-       // Debug.Log("I Died!");
+        Debug.Log("I Died!");
     }
     
     protected virtual void OnTriggerEnter(Collider other)
@@ -87,13 +88,12 @@ public class BaseBall : MonoBehaviour
             
             if (!otherBall.infected)
             {
-                int infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+                float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
                 if (Random.value < infectChance)
                 {
                     otherBall.SetInfected();
                 }
             }
-           
         }
     }
 
@@ -110,12 +110,10 @@ public class BaseBall : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
         triggerArea.transform.localScale = originalSize * m_cachedTriggerRadius;
-
     }
 
-    public IEnumerator ScaleDown()
+    public IEnumerator DeathAnimation()
     {
         Vector3 originalSize = this.transform.localScale;
         Vector3 targetSize = Vector3.zero;
@@ -132,6 +130,24 @@ public class BaseBall : MonoBehaviour
 
         this.transform.localScale = targetSize;
         this.gameObject.SetActive(false);
+    }
+
+    public IEnumerator ScaleToNormal()
+    {
+        Vector3 originalSize = triggerArea.transform.localScale;
+        Vector3 targetSize = new Vector3(1,1,1);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationSpeed)
+        {
+            triggerArea.transform.localScale = Vector3.Lerp(originalSize, targetSize,
+                (elapsedTime / animationSpeed));
+            elapsedTime += Time.deltaTime;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        this.transform.localScale = targetSize;
     }
 }
 

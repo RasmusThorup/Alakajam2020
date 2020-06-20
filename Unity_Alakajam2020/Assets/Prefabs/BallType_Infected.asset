@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 15
   triggerRadius: 5
-  virusLevel: 20
+  virusLevel: 100
   speed: 7

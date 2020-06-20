@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BallClass_Medic : BaseBall
 {
-    public InfectedSettings overrideSettings;
+    public InfectedSettings classSetting;
 
     public override void OnEnable()
     {
+        m_cachedTriggerRadius = classSetting.triggerRadius;
+        m_cachedLifeTime = classSetting.lifeTime;
+        m_cachedVirusLevel = classSetting.virusLevel;
+        m_cachedSpeed = classSetting.speed;
+
         base.OnEnable();
         isMedic = true;
         StartCoroutine(ScaleUp());
@@ -19,11 +24,12 @@ public class BallClass_Medic : BaseBall
 
         if (otherBall.infected)
         {
-            int healChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+            float healChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+            
             if (Random.value < healChance)
             {
                 otherBall.infected = false;
-                otherBall.StartCoroutine(ScaleDown());
+                otherBall.SetHealed();
             }
             else
             {
@@ -39,7 +45,7 @@ public class BallClass_Medic : BaseBall
         {
             return;
         }
-        infectedSetup = overrideSettings;
+        //infected = overrideSettings;
 
 
         base.SetInfected();
@@ -48,6 +54,6 @@ public class BallClass_Medic : BaseBall
     protected override void OnDeath()
     {
         base.OnDeath();
-        StartCoroutine(ScaleDown());
+        StartCoroutine(DeathAnimation());
     }
 }
