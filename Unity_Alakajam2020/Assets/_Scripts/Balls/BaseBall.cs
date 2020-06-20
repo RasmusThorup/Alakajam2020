@@ -28,10 +28,10 @@ public class BaseBall : MonoBehaviour
    public virtual void Update()
     {
 
-        /*if (Input.anyKey)
+        if (Input.anyKey)
         {
             SetInfected();
-        }*/
+        }
         
         if (infected)
         {
@@ -50,6 +50,10 @@ public class BaseBall : MonoBehaviour
 
    protected virtual void SetInfected()
    {
+       if (infected)
+       {
+           return;
+       }
        m_cachedTriggerRadius = infectedSetup.triggerRadius;
        m_cachedLifeTime = infectedSetup.lifeTime;
        m_cachedVirusResistance = infectedSetup.virusResistance;
@@ -74,7 +78,6 @@ public class BaseBall : MonoBehaviour
             //TODO: Calculate if ball should be infected 
             if (!otherBall.infected)
             {
-                otherBall = this; 
                 otherBall.SetInfected();
             }
            
