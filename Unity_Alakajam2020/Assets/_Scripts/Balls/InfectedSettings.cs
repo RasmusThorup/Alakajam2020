@@ -7,7 +7,7 @@ public class InfectedSettings : ScriptableObject
 {
     public float lifeTime = 10;
     public float triggerRadius = 5;
-    public int chanceToInfect = 100;
-    public int virusResistance = 0;
+    public int virusLevel = 100;
+    public int speed = 5;
     
 }

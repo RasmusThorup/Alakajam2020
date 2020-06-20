@@ -1,6 +1,509 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}" SchemaVersion="97">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}" PersistMode="Standalone">
+			<ChildrenList>
+				<RandomSequenceContainer Name="Scat" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" ShortID="66676473">
+					<PropertyList>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Scat_demo_01" ID="{79768A2A-BD21-40A2-AD32-04D4630B53BE}" ShortID="748006391">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_01" ID="{EC2ADFBE-4150-4A8B-9ABE-A981C6DA92EE}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="611737040"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_01" ID="{EC2ADFBE-4150-4A8B-9ABE-A981C6DA92EE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_02" ID="{B7630F40-15C2-4753-9BFD-09057B8AB650}" ShortID="644269267">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_02" ID="{7953B30F-714A-46F4-931A-25E3FDE8A2BB}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="963979229"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_02" ID="{7953B30F-714A-46F4-931A-25E3FDE8A2BB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_03" ID="{2E533C5A-3D2B-4E52-AB82-F10ACB1C30DA}" ShortID="348035375">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_03" ID="{E12B5AA5-0955-41F4-8E1E-A145C76EC55F}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="681623765"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_03" ID="{E12B5AA5-0955-41F4-8E1E-A145C76EC55F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_04" ID="{682E0B11-220B-48AE-B8B2-E6973B2FB512}" ShortID="426760509">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_04" ID="{D44693E6-48F9-411D-BC41-4F5F9037E6E3}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_04.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1008133984"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_04" ID="{D44693E6-48F9-411D-BC41-4F5F9037E6E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_05" ID="{89F32CDC-BD34-43F6-B845-19593BCEEA93}" ShortID="912027291">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_05" ID="{497EF5B0-C6E6-4218-9794-27F8A92599A8}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_05.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="185566191"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_05" ID="{497EF5B0-C6E6-4218-9794-27F8A92599A8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_06" ID="{15B1419E-A338-4CBC-9452-FD2D1277CCA9}" ShortID="4239553">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_06" ID="{C53E953A-58FB-451E-AC41-82E69141B2D7}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_06.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="58394675"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_06" ID="{C53E953A-58FB-451E-AC41-82E69141B2D7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_07" ID="{00786D06-7B9D-4353-B55F-435704ACA415}" ShortID="993208989">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_07" ID="{826814E7-70FE-4A4B-A190-62856701F896}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_07.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="804182027"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_07" ID="{826814E7-70FE-4A4B-A190-62856701F896}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_08" ID="{9107AD1C-CA52-4CC9-A998-12672C95A1C0}" ShortID="915675961">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_08" ID="{3E854849-C41C-46F9-87C0-5594DBCFB7A8}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_08.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="856422204"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_08" ID="{3E854849-C41C-46F9-87C0-5594DBCFB7A8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_09" ID="{6D9A9D08-F3F5-41EB-8C41-CF49B7925344}" ShortID="313204169">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_09" ID="{D0C9D0C7-C883-4941-A8FC-3EA3C968CA44}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_09.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="191480171"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_09" ID="{D0C9D0C7-C883-4941-A8FC-3EA3C968CA44}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_10" ID="{652DE6ED-3988-4B90-881A-96E8E8C0F306}" ShortID="788471007">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_10" ID="{F933C7D2-DFC5-4A92-A2F1-86334A7C98F7}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_10.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="63006384"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_10" ID="{F933C7D2-DFC5-4A92-A2F1-86334A7C98F7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_11" ID="{74E4064A-E6FB-4D98-8488-6CE2640C0850}" ShortID="177217626">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_11" ID="{74D84D10-4231-4EB9-89A6-FE9E0E6F90C8}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_11.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="907209873"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_11" ID="{74D84D10-4231-4EB9-89A6-FE9E0E6F90C8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_12" ID="{679EEB65-4619-441E-AA13-CD011CDAC9E7}" ShortID="612418703">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_12" ID="{DF7FB44C-6F8D-48AF-B201-9F06626179A9}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_12.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="397248402"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_12" ID="{DF7FB44C-6F8D-48AF-B201-9F06626179A9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_13" ID="{6BA689F8-4ACF-4C6B-9726-EC9A6C1F3C66}" ShortID="86381216">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_13" ID="{EA70D931-829C-4CA3-8D48-57A23438DDF6}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_13.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="456935305"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_13" ID="{EA70D931-829C-4CA3-8D48-57A23438DDF6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_14" ID="{44B0CACF-CB3F-4460-B2F1-FF4929C519DA}" ShortID="93976596">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_14" ID="{9E529658-2F41-40E4-A7EE-B4D5718B712F}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_14.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="732445062"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_14" ID="{9E529658-2F41-40E4-A7EE-B4D5718B712F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_15" ID="{8E75816D-43E0-4C17-8538-C72882B21665}" ShortID="616950681">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_15" ID="{2A107189-EF9F-4B7B-8BE8-BBF7F11FCF9B}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_15.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="857452553"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_15" ID="{2A107189-EF9F-4B7B-8BE8-BBF7F11FCF9B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_16" ID="{FA0C7FDD-DA20-44A0-9D2C-B6F994F9FE9C}" ShortID="19468095">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_16" ID="{FB38FC76-DE88-4380-8BC2-69630CE28F8B}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_16.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="60034933"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_16" ID="{FB38FC76-DE88-4380-8BC2-69630CE28F8B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_17" ID="{55EBEB3D-E91D-4FCF-9E32-F57D48DDF221}" ShortID="742937622">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_17" ID="{3B99B583-0259-4FCE-9908-AB23B27DDCD3}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_17.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="792028434"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_17" ID="{3B99B583-0259-4FCE-9908-AB23B27DDCD3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_18" ID="{2BF93D76-DB08-49F5-AD49-14E9E2BC53EB}" ShortID="424334135">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_18" ID="{C57FA850-19F7-469D-8EC3-29519F1EC5EA}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_18.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="800762864"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_18" ID="{C57FA850-19F7-469D-8EC3-29519F1EC5EA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_19" ID="{64A33FFD-9189-4FA4-A9DE-47B05BEE4003}" ShortID="161993573">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_19" ID="{F0F23A37-72B4-4EC7-9944-2DF4FFB13530}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_19.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="602993404"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_19" ID="{F0F23A37-72B4-4EC7-9944-2DF4FFB13530}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_20" ID="{281693FF-4EAC-4089-8F31-4DB5AEC2888B}" ShortID="552247553">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_20" ID="{F8AFE66D-E3BE-4665-9BE9-C7A6807EFDDE}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_20.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="6898213"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_20" ID="{F8AFE66D-E3BE-4665-9BE9-C7A6807EFDDE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_21" ID="{431AA90C-777A-4155-850D-31E0668E0820}" ShortID="892822097">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_21" ID="{151CE3CD-5325-4904-B6F8-E0A39F823011}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_21.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="408722029"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_21" ID="{151CE3CD-5325-4904-B6F8-E0A39F823011}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scat_demo_22" ID="{6734B39D-9618-4ED7-95E9-F1460C84E693}" ShortID="867459501">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{EB4AB4E0-9B19-4584-8D9A-E84C80FDD2B0}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{8D5A5826-AAD8-48B7-AE64-45B0405386DA}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scat_demo_22" ID="{8B52C8A3-A815-44DE-A4FB-E3A264CE3CE2}">
+									<Language>SFX</Language>
+									<AudioFile>Scat_test\Scat_demo_22.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="841477561"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scat_demo_22" ID="{8B52C8A3-A815-44DE-A4FB-E3A264CE3CE2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

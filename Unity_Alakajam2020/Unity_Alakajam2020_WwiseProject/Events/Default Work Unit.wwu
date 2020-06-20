@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{23300D0F-27A5-4270-9EE5-0E7677A93FA1}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{23300D0F-27A5-4270-9EE5-0E7677A93FA1}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{23300D0F-27A5-4270-9EE5-0E7677A93FA1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="SFX_Ball" ID="{A2510A15-91A0-4B55-A691-DEF3CD6BE176}" ShortID="710544581">
+					<ChildrenList>
+						<Event Name="SFX_Ball_Infected" ID="{362B3AFF-A2D3-4968-8649-70EE35D5D358}"/>
+						<Event Name="SFX_Ball_Dead" ID="{22DD9146-C6BC-4EBC-A4BD-78C9BB90A409}"/>
+						<Event Name="SFX_Ball_Spawn" ID="{DD01FADE-2010-4539-947C-100B95CFCBCA}"/>
+						<Event Name="SFX_" ID="{6D79EEEF-3ADE-4831-817E-1438B93E4A16}"/>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

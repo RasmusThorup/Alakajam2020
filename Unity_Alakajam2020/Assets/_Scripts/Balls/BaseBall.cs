@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +9,8 @@ public class BaseBall : MonoBehaviour
     public InfectedSettings infectedSetup;
     protected float m_cachedLifeTime; 
     protected float m_cachedTriggerRadius;
-    protected int m_cachedChanceToInfect = 100;
-    protected int m_cachedVirusResistance = 0;
+    protected int m_cachedVirusLevel = 0;
+    protected int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
     public bool dead;
@@ -46,11 +46,12 @@ public class BaseBall : MonoBehaviour
 
    protected virtual void SetInfected()
    {
-       m_cachedTriggerRadius = infectedSetup.triggerRadius;
-       m_cachedLifeTime = infectedSetup.lifeTime;
-       m_cachedVirusResistance = infectedSetup.virusResistance;
-       m_cachedChanceToInfect = infectedSetup.chanceToInfect;
-       infected = true;
+        m_cachedTriggerRadius = infectedSetup.triggerRadius;
+        m_cachedLifeTime = infectedSetup.lifeTime;
+        m_cachedVirusLevel = infectedSetup.virusLevel;
+        m_cachedSpeed = infectedSetup.speed;
+
+        infected = true;
         Debug.Log("Im Infected!");
     }
 
@@ -74,7 +75,11 @@ public class BaseBall : MonoBehaviour
             //TODO: Calculate if ball should be infected 
             if (!otherBall.infected)
             {
-                otherBall.SetInfected();
+                int infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
+                if (Random.value < infectChance)
+                {
+                    otherBall.SetInfected();
+                }
             }
            
         }
