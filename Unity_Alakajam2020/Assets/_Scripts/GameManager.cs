@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public ScoreManager scoreManager; 
 
+    public Vector4 gameAreaEdges;
+
     //-----Singleton-----
     private static GameManager _instance;
     public static GameManager Instance

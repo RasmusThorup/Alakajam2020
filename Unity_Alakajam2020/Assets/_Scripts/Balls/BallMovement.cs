@@ -8,7 +8,7 @@ public class BallMovement : MonoBehaviour
     public BaseBall baseBall; 
         
     [Tooltip("X & Y = min og max værdierne på x-aksen, Z & W = min og max værdierne på y-aksen")]
-    public Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
+    private Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
     public Vector2 currentPos;
     public Vector2 currentDir;
     
@@ -26,6 +26,7 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         currentPos = myTransform.position;
+        gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
 
         if (currentPos.y <= gameAreaOuterEdges.z)
         {

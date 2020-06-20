@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayableArea : MonoBehaviour
 {
-    public Canvas canvas;
+    public Vector4 gameAreaEdges;
     public MeshFilter meshFilter;
     public Vector2 gameAreaSize;
-
+    float oldAspect;
+    private Camera mainCam;
     Mesh mesh;
     Vector3[] vertices;
     int[] triangles;
 
-    public float yOffset = 1;
-    public Vector2 offset = new Vector2(0,20);
+    public Vector2 offset = new Vector2(0,3);
+    public Vector2 padding = new Vector2(10,15);
 
-    // Start is called before the first frame update
     void Start()
     {
         mesh = new Mesh();
@@ -26,34 +27,37 @@ public class PlayableArea : MonoBehaviour
             0,1,2,
             1,3,2
         };
-        
-        //CreateShape();
-        //UpdateMesh();
+
+        mainCam = Camera.main;
     }
 
-
-    void Update()
+    void LateUpdate()
     {
-        //if (canvas.pixelRect.size == gameAreaSize) //Early out if canvas hasn't changed
-        //    return;
+        if (oldAspect == mainCam.aspect) //Early out if aspect hasn't changed
+            return;
 
-        gameAreaSize = canvas.pixelRect.size;
+        Debug.Log("Update");
+
+        float height = 2.0f * Mathf.Tan(0.5f * mainCam.fieldOfView * Mathf.Deg2Rad)* 40.0f;
+        float width = height * mainCam.aspect;
+
+        gameAreaSize = new Vector2(width-padding.x,height-padding.y);
         
-        float x = gameAreaSize.x*0.5f*0.1f;
-        float y = gameAreaSize.y*0.1f*0.1f;
-        float yTop = y*4.5f;
-        float yBot = -y*5.5f;
-        //float y = gameAreaSize.y*0.5f;
+        float x = gameAreaSize.x*0.5f;
+        float y = gameAreaSize.y*0.5f;
+        gameAreaEdges = new Vector4(-x+offset.x,x+offset.x,-y+offset.y,y+offset.y);
         
         vertices = new Vector3[]
         {
-            new Vector3 (-x,yBot,0),
-            new Vector3 (-x,yTop,0),
-            new Vector3 (x,yBot,0),
-            new Vector3 (x,yTop,0)
+            new Vector3 (gameAreaEdges.x,gameAreaEdges.z,0),
+            new Vector3 (gameAreaEdges.x,gameAreaEdges.w,0),
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.z,0),
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0)
         };
 
         UpdateMesh();
+        oldAspect = mainCam.aspect;
+        GameManager.Instance.gameAreaEdges = gameAreaEdges;
     }
 
     void UpdateMesh()
