@@ -7,7 +7,7 @@ public class BaseBall : MonoBehaviour
 {
 
     public float lifeTime = 10;
-    private float m_chachedLifetime;
+    protected float m_chachedLifetime;
     public float triggerRadius = 10;
     public SphereCollider triggerCollider;
     public bool infected;
@@ -23,14 +23,8 @@ public class BaseBall : MonoBehaviour
         dead = false; 
     }
 
-    void Update()
+   public virtual void Update()
     {
-        if (Input.anyKey)
-        {
-            OnInfected(); 
-        }
-
-
         if (infected)
         {
             if (m_chachedLifetime <= 0)
@@ -60,7 +54,6 @@ public class BaseBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (infected)
         {
             BaseBall otherBall = other.GetComponent<BaseBall>(); 

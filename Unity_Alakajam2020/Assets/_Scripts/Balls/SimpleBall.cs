@@ -15,6 +15,5 @@ public class SimpleBall : BaseBall
         Debug.Log("Im Infected!");
         base.OnInfected();
     }
-
-
+    
 }
