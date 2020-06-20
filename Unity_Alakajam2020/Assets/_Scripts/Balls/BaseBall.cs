@@ -13,11 +13,7 @@ public class BaseBall : MonoBehaviour
     protected int m_cachedVirusResistance = 0;
     public GameObject triggerArea;
     public bool infected;
-    public bool dead; 
-    
-
-    
-
+    public bool dead;
 
 
     private void OnEnable()
@@ -50,10 +46,6 @@ public class BaseBall : MonoBehaviour
 
    protected virtual void SetInfected()
    {
-       if (infected)
-       {
-           return;
-       }
        m_cachedTriggerRadius = infectedSetup.triggerRadius;
        m_cachedLifeTime = infectedSetup.lifeTime;
        m_cachedVirusResistance = infectedSetup.virusResistance;
@@ -73,8 +65,12 @@ public class BaseBall : MonoBehaviour
     {
         if (infected)
         {
-            BaseBall otherBall = other.GetComponent<BaseBall>(); 
-            
+            BaseBall otherBall = other.GetComponent<BaseBall>();
+
+            if (otherBall == null)
+            {
+                return; 
+            }
             //TODO: Calculate if ball should be infected 
             if (!otherBall.infected)
             {

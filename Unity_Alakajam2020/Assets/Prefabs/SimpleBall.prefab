@@ -128,6 +128,7 @@ MonoBehaviour:
   triggerArea: {fileID: 8107083263521043753}
   infected: 0
   dead: 0
+  animationSpeed: 0.4
 --- !u!1 &8107083263521043753
 GameObject:
   m_ObjectHideFlags: 0
