@@ -9,7 +9,7 @@ public class BaseBall : MonoBehaviour
     public float lifeTime = 10;
     protected float m_chachedLifetime;
     public float triggerRadius = 10;
-    public SphereCollider triggerCollider;
+    public GameObject triggerArea;
     public bool infected;
     public bool dead; 
     public int chanceToInfect;
@@ -18,13 +18,18 @@ public class BaseBall : MonoBehaviour
 
     private void OnEnable()
     {
-        triggerCollider.radius = triggerRadius; 
+   
         m_chachedLifetime = lifeTime;
         dead = false; 
     }
 
    public virtual void Update()
     {
+
+        if (Input.anyKey)
+        {
+            OnInfected(); 
+        }
         if (infected)
         {
             if (m_chachedLifetime <= 0)
@@ -32,26 +37,23 @@ public class BaseBall : MonoBehaviour
                 OnDeath();
             }
 
-            m_chachedLifetime -= Time.deltaTime; 
-            Debug.Log(m_chachedLifetime);
+            m_chachedLifetime -= Time.deltaTime;
         }
         
     }
 
-    public virtual void OnInfected()
+   protected virtual void OnInfected()
     {
-
-        infected = true; 
+        infected = true;
+        Debug.Log("Im Infected!");
     }
 
 
-    public virtual void OnDeath()
+    protected virtual void OnDeath()
     {
-        dead = true; 
-        this.gameObject.SetActive(false);
+        Debug.Log("I Died!");
     }
-
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (infected)
@@ -59,8 +61,11 @@ public class BaseBall : MonoBehaviour
             BaseBall otherBall = other.GetComponent<BaseBall>(); 
             
             //TODO: Calculate if ball should be infected 
-            
-            otherBall.OnInfected();
+            if (!otherBall.infected)
+            { 
+                otherBall.OnInfected();
+            }
+           
         }
     }
 }

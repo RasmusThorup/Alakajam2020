@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SimpleBall : BaseBall
 {
-    public override void OnDeath()
+    protected override void OnDeath()
     {
-        Debug.Log("I Died!");
         base.OnDeath();
+        this.gameObject.SetActive(false);
     }
 
-    public override void OnInfected()
+    protected override void OnInfected()
     {
-        Debug.Log("Im Infected!");
         base.OnInfected();
+        triggerArea.transform.localScale = transform.localScale * triggerRadius; 
     }
     
 }
