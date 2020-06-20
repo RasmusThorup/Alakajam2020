@@ -22,8 +22,6 @@ public class QuarantineBall : BaseBall
         base.OnDeath();
         StartCoroutine(ScaleDown());
     }
-    
-    
     public IEnumerator ScaleUp()
     {
         Vector3 originalSize = triggerArea.transform.localScale;
