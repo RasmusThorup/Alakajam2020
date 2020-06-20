@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuarantineBall : BaseBall
 {
-    public float animationSpeed = 0.2f; 
+    public float animationSpeed = 0.2f;
     public override void SetInfected()
     {
         if (infected)
