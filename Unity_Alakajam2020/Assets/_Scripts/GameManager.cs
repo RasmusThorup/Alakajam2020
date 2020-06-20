@@ -5,6 +5,7 @@ using NaughtyAttributes;
 
 public class GameManager : MonoBehaviour
 {
+    public ScoreManager scoreManager; 
 
     //-----Singleton-----
     private static GameManager _instance;
