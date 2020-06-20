@@ -8,6 +8,8 @@ public class BaseBall : MonoBehaviour
     public InfectedSettings infectedSetting;
     public InfectedSettings citizenSetting;
 
+    public WaveManager wavemanager;
+
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
     public float m_cachedVirusLevel;
@@ -20,10 +22,16 @@ public class BaseBall : MonoBehaviour
     public bool isMedic;
     public float animationSpeed = 0.2f;
 
+    private void Awake()
+    {
+        wavemanager = WaveManager.instance;
+    }
 
     public virtual void OnEnable()
     {
         dead = false;
+        wavemanager.activeBallList.Add(this);
+        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public virtual void Update()
@@ -95,6 +103,8 @@ public class BaseBall : MonoBehaviour
     {
         dead = true;
         Debug.Log("I Died!");
+        wavemanager.activeBallList.Remove(this);
+        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public IEnumerator ScaleUp()
