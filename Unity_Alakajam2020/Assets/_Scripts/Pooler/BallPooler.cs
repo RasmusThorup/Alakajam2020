@@ -94,9 +94,10 @@ public class BallPooler : MonoBehaviour
         yield return null;
     }
 
-    [Button("Test Spawn 69 Balls over 4.20 seconds")]
+    [Button("Test Spawn 69 Balls over 4.20 seconds with tag Debug")]
     void TestTriggerSpawner()
     {
-        SpawnBalls("Base Ball", 69, new Vector2(-5,5), new Vector2(-5,5), 4.2f);
+        SpawnBalls("Debug", 69, new Vector2(GameManager.Instance.gameAreaEdges.x,GameManager.Instance.gameAreaEdges.y), 
+        new Vector2(GameManager.Instance.gameAreaEdges.z,GameManager.Instance.gameAreaEdges.w), 4.2f);
     }
 }
