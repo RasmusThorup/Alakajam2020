@@ -26,7 +26,7 @@ public class BaseBall : MonoBehaviour
         dead = false;
     }
 
-   public virtual void Update()
+    public virtual void Update()
     {
         if (debug)
         {
@@ -36,7 +36,6 @@ public class BaseBall : MonoBehaviour
             }
         }
        
-        
         if (infected)
         {
             if (m_cachedLifeTime <= 0)
@@ -46,10 +45,8 @@ public class BaseBall : MonoBehaviour
                     OnDeath();
                 }
             }
-            
             m_cachedLifeTime -= Time.deltaTime;
-        }
-        
+        } 
     }
 
    public virtual void SetInfected()
@@ -61,8 +58,6 @@ public class BaseBall : MonoBehaviour
 
         infected = true;
         StartCoroutine(ScaleUp());
-        Debug.Log(gameObject.name + " scaled up!");
-        //Debug.Log("Im Infected!");
     }
 
     public virtual void SetHealed()
@@ -72,7 +67,6 @@ public class BaseBall : MonoBehaviour
         m_cachedVirusLevel = citizenSetting.virusLevel;
         m_cachedSpeed = citizenSetting.speed;
         StartCoroutine(ScaleToNormal());
-        Debug.Log(gameObject.name + " is healed");
     }
 
     protected virtual void OnDeath()
@@ -89,29 +83,22 @@ public class BaseBall : MonoBehaviour
 
             if (otherBall == null || otherBall.isMedic)
             {
-                Debug.Log("Hit medic");
                 return; 
             }
             
             if (!otherBall.infected)
             {
                 float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
-                Debug.Log("Infectchance " + infectChance);
                 if (Random.value < infectChance)
                 {
                     otherBall.SetInfected();
                 }
             }
-           
         }
     }
 
     public IEnumerator ScaleUp()
     {
-        if (true)
-        {
-
-        }
         Vector3 originalSize = triggerArea.transform.localScale;
         float elapsedTime = 0f;
 
@@ -123,9 +110,7 @@ public class BaseBall : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
         triggerArea.transform.localScale = originalSize * m_cachedTriggerRadius;
-
     }
 
     public IEnumerator DeathAnimation()
@@ -149,7 +134,6 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator ScaleToNormal()
     {
-        Debug.Log(gameObject.name + " DIED!");
         Vector3 originalSize = triggerArea.transform.localScale;
         Vector3 targetSize = new Vector3(1,1,1);
         float elapsedTime = 0f;
@@ -159,7 +143,6 @@ public class BaseBall : MonoBehaviour
             triggerArea.transform.localScale = Vector3.Lerp(originalSize, targetSize,
                 (elapsedTime / animationSpeed));
             elapsedTime += Time.deltaTime;
-            Debug.Log("the scale size is: " + triggerArea.transform.localScale);
 
             yield return new WaitForEndOfFrame();
         }

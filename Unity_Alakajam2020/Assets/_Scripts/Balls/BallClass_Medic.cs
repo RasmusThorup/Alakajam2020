@@ -31,10 +31,10 @@ public class BallClass_Medic : BaseBall
                 otherBall.infected = false;
                 otherBall.SetHealed();
             }
-            //else
-            //{
-            //    SetInfected();
-            //}
+            else
+            {
+                SetInfected();
+            }
         }
     }
 
