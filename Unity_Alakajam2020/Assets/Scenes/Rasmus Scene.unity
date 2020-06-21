@@ -5689,11 +5689,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1300255935399172784, guid: 1c0fcfb640ff10148bfbc28b3436c533,
-        type: 3}
-      propertyPath: generateMesh
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1300255935399172785, guid: 1c0fcfb640ff10148bfbc28b3436c533,
         type: 3}
       propertyPath: m_Name
@@ -5763,26 +5758,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1678877156809576025, guid: 63152dcbcec96d0438267c19e935ca61,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1678877156809576025, guid: 63152dcbcec96d0438267c19e935ca61,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1678877156809576025, guid: 63152dcbcec96d0438267c19e935ca61,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1678877156809576025, guid: 63152dcbcec96d0438267c19e935ca61,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5912945637606568004, guid: 63152dcbcec96d0438267c19e935ca61,
         type: 3}
       propertyPath: m_LocalPosition.x
