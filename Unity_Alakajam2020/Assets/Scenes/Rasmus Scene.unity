@@ -282,6 +282,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleBall
       objectReference: {fileID: 0}
+    - target: {fileID: 7489296158304646131, guid: f18da78e9c14b4cf78173e918c2d8ace,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18da78e9c14b4cf78173e918c2d8ace, type: 3}
 --- !u!1 &137570392
@@ -5869,11 +5874,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5912945637606568005, guid: 63152dcbcec96d0438267c19e935ca61,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1941453994}
     - target: {fileID: 5912945637606568120, guid: 63152dcbcec96d0438267c19e935ca61,
         type: 3}
       propertyPath: m_Name
@@ -5958,6 +5958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QurantineBall
       objectReference: {fileID: 0}
+    - target: {fileID: 7489296158304646131, guid: 327d2682ac95c41d2a3025b14f2cea70,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327d2682ac95c41d2a3025b14f2cea70, type: 3}
 --- !u!1001 &1598665745
@@ -6026,6 +6031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pools.Array.data[0].size
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5527171189731329129, guid: 0f4ce1284979a426f9f37a35f365df71,
         type: 3}
@@ -6156,6 +6166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedicBall_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4515583368289876781, guid: 53d341e36421740d3b3856db65465b18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6386718722833661969, guid: 53d341e36421740d3b3856db65465b18,
         type: 3}
       propertyPath: m_IsActive
@@ -6163,12 +6178,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d341e36421740d3b3856db65465b18, type: 3}
---- !u!20 &1941453994 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2667968623023525625, guid: 0e5fec6c6ca49324da83685733f8d2fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 2667968622228137183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2667968622228137183
 PrefabInstance:
   m_ObjectHideFlags: 0

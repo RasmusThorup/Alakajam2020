@@ -12,4 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042465fee702f44089291a9ec6b5a4c9, type: 3}
   m_Name: Upgrades
   m_EditorClassIdentifier: 
-  upgrades: []
+  upgrades:
+  - Text: Upgrade 1
+    ToolTipText: Tooltip 1
+    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Type: 0
+    PosChange: 0
+    negChange: 0
+    spawn: {fileID: 0}
+    Icon: {fileID: 0}
+  - Text: Upgrade 2
+    ToolTipText: Tooltip 2
+    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Type: 0
+    PosChange: 0
+    negChange: 0
+    spawn: {fileID: 0}
+    Icon: {fileID: 0}
+  - Text: Upgrade 3
+    ToolTipText: Tooltip 3
+    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
+    Type: 0
+    PosChange: 0
+    negChange: 0
+    spawn: {fileID: 0}
+    Icon: {fileID: 0}
