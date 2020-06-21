@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: -7432571408827847800}
   - component: {fileID: -8476884334621252468}
   m_Layer: 0
-  m_Name: QurantineBall
+  m_Name: BallPrefab_Quarantine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   dead: 0
   debug: 0
   isMedic: 0
-  animationSpeed: 0.2
+  animationSpeed: 0.4
   classSetting: {fileID: 11400000, guid: 5130296849e6b46939ecb27927899b33, type: 2}
 --- !u!1 &8107083263521043753
 GameObject:

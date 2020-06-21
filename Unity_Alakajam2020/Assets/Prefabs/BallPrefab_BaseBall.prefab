@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1795619268887418116}
   - component: {fileID: 1795619268887418117}
   - component: {fileID: -6849377213713641003}
-  - component: {fileID: 8414807691651982578}
+  - component: {fileID: 3723510362466693713}
   - component: {fileID: -2823487356985003253}
   m_Layer: 0
-  m_Name: Base Ball
+  m_Name: BallPrefab_BaseBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8414807691651982578
+--- !u!114 &3723510362466693713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,16 +107,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1795619268887418119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e4713b5d332456f9684672852e07d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f3348bdb78004b84b10c7fa92aac696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
-  triggerRadius: 10
-  triggerCollider: {fileID: -2823487356985003253}
+  infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
+  citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  m_cachedLifeTime: 0
+  m_cachedTriggerRadius: 0
+  m_cachedVirusLevel: 0
+  m_cachedSpeed: 0
+  triggerArea: {fileID: 0}
   infected: 0
   dead: 0
-  chanceToInfect: 0
-  virusResistance: 0
+  debug: 0
+  isMedic: 0
+  animationSpeed: 0.4
 --- !u!135 &-2823487356985003253
 SphereCollider:
   m_ObjectHideFlags: 0
