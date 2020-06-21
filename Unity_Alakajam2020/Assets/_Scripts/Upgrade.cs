@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 using UnityEngine.UI;
+using NaughtyAttributes;
 
 
 [CreateAssetMenu]
@@ -14,27 +15,22 @@ public class Upgrade : ScriptableObject
     {
         public string Text;
         public string ToolTipText;
-        public Color Outer;
-        public Color Middle;
-        public Color Inner;
         public UpgradeType Type;
         public int PosChange;
         public int negChange;
         public GameObject spawn; 
-        public Sprite Icon;
+        //public Sprite Icon;
+        public bool isPlaceableObject;
     }
 
     public enum UpgradeType
     {
+        NotUsed,
         MoreLevelLessLife,
         MoreSpeedLessRadus,
         MoreRadiusLessLevel,
-        MoreLifeLessSpeed,
-        
+        MoreLifeLessSpeed
     }
     
     public UpgradeInfo[] upgrades = Array.Empty<UpgradeInfo>();
-
-
-
 }

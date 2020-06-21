@@ -33,44 +33,48 @@ public class UpgradeSystem : MonoBehaviour
     {
         choice.Text.text = info.Text;
         choice.ToolTipText.text = info.ToolTipText; 
-        choice.Outer.color = info.Outer;
-        choice.Middle.color = info.Middle;
-        choice.Inner.color = info.Inner;
-        choice.Icon.sprite = info.Icon;
         choice.Button.onClick.RemoveAllListeners();
         choice.Button.onClick.AddListener(() =>
         {
-
-            if (info.spawn == null)
+            if(info.isPlaceableObject)
             {
+
+                Debug.Log("Ball has been selected");
+                GameManager.Instance.EnablePlaceableUpgrade(info.spawn);
+                //Spawn obj. 
+            }
+            else if(info.spawn)
+            {
+                //Is not a placeable object, but will still spawn sometihng.
+                Debug.Log("Shrink level");
+            }
+            else
+            {
+                Debug.Log("Upgrade values");
                 switch (info.Type)
                 {
                     case Upgrade.UpgradeType.MoreLevelLessLife:
                         infectedSetting.SetVirusLevel(info.PosChange);
                         infectedSetting.SetLifeTime(info.negChange);
+
                         break;
                     case Upgrade.UpgradeType.MoreLifeLessSpeed:
                         infectedSetting.SetLifeTime(info.PosChange);
                         infectedSetting.SetSpeed(info.negChange); 
-                        // Change Settings
+
                         break;
                     case Upgrade.UpgradeType.MoreRadiusLessLevel:
                         infectedSetting.SetTriggerRadius(info.PosChange);
                         infectedSetting.SetVirusLevel(info.negChange); 
-                        // Change Settings
+
                         break;
                     case Upgrade.UpgradeType.MoreSpeedLessRadus:
                         infectedSetting.SetSpeed(info.PosChange);
                         infectedSetting.SetTriggerRadius(info.negChange); 
-                        // Change Settings
+
                         break;
                 }
-            }
-            else
-            {
-                
-            }
-          
+            }          
 
             gameObject.SetActive(false);
         });

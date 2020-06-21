@@ -15,31 +15,22 @@ MonoBehaviour:
   upgrades:
   - Text: Upgrade 1
     ToolTipText: Tooltip 1
-    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Type: 0
+    Type: 1
     PosChange: 0
     negChange: 0
     spawn: {fileID: 0}
-    Icon: {fileID: 0}
+    isPlaceableObject: 0
   - Text: Upgrade 2
     ToolTipText: Tooltip 2
-    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Type: 0
+    Type: 1
     PosChange: 0
     negChange: 0
     spawn: {fileID: 0}
-    Icon: {fileID: 0}
+    isPlaceableObject: 0
   - Text: Upgrade 3
     ToolTipText: Tooltip 3
-    Outer: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Middle: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
-    Inner: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
     Type: 0
     PosChange: 0
     negChange: 0
-    spawn: {fileID: 0}
-    Icon: {fileID: 0}
+    spawn: {fileID: 7489296158304646131, guid: 89bd963761baa40eca66b0213a5a092f, type: 3}
+    isPlaceableObject: 1

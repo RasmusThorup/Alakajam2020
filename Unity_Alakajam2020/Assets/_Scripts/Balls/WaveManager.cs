@@ -58,12 +58,12 @@ public class WaveManager : MonoBehaviour
     public void Init()
     {
         currentTime = 0;
+        //BallPooler.Instance.SpawnBalls(ballSpawn.ballName, ballSpawnAmount, timeToSpawn);
     }
 
     public void Update()
     {
         if (!GameManager.Instance.gameHasStarted) return;
-        
         
         if (currentTime <= 0)
         {
@@ -81,6 +81,8 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < ballTypes.Count; i++)
         {
             BallSpawnValue ballSpawn = ballTypes[i];
+            int ballSpawnAmount = 0;
+
             if (waveCounter % ballSpawn.additionalBallSpawn == 0)
             {
                 ballSpawn.ballAmount++;
@@ -90,9 +92,10 @@ public class WaveManager : MonoBehaviour
             {
                 if (Random.value < ballSpawn.ballSpawnChance)
                 {
-                    BallPooler.Instance.SpawnBalls(ballSpawn.ballName, 1, timeToSpawn);
+                    ballSpawnAmount++;
                 }
             }
+            BallPooler.Instance.SpawnBalls(ballSpawn.ballName, ballSpawnAmount, timeToSpawn);
         }
     }
 }

@@ -87,7 +87,7 @@ public class BallPooler : MonoBehaviour
         {   
             float x = Random.Range(GameManager.Instance.gameAreaEdges.x,GameManager.Instance.gameAreaEdges.y);
             float y = Random.Range(GameManager.Instance.gameAreaEdges.z,GameManager.Instance.gameAreaEdges.w);
-            SpawnFromPool(tag,new Vector2(x, y));
+            SpawnFromPool(tag, new Vector2(x, y));
             yield return new WaitForSeconds(timeBetweenBalls);
         }
 

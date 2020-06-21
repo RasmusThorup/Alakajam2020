@@ -10,8 +10,15 @@ public class GameManager : MonoBehaviour
 {
     public ScoreManager scoreManager;
     public UIManager UiManager;
-    public WaveManager waveManager; 
+    public WaveManager waveManager;
+    public GameObject firstInfectedToPlace;
+    [ReadOnly]
+    public GameObject placeablePlaceholder;
+    [ReadOnly]
     public Vector4 gameAreaEdges;
+    [ReadOnly]
+    public GameObject upgradeToPlace; 
+    [ReadOnly]
     public bool gameHasStarted = false;
     public float timeBeforeGameEnds = 5f;
     private float m_cachedTimeBeforeGameEnds; 
@@ -31,6 +38,9 @@ public class GameManager : MonoBehaviour
             return;
         }
         _instance = this;
+
+        if (!UiManager)
+            UiManager = FindObjectOfType<UIManager>();
     }
 
     private void Start()
@@ -40,8 +50,8 @@ public class GameManager : MonoBehaviour
 
     public void PlaceInfected()
     {
-        
-        
+        //Debug.Log("Place infected");
+        placeablePlaceholder.SetActive(true);
         // StartGame(); 
     }
 
@@ -112,5 +122,33 @@ public class GameManager : MonoBehaviour
         UiManager.ShowUpgradeUI(false);
         UiManager.ShowEndScreen(true);
         gameHasStarted = false;
+    }
+
+    
+    public void EnablePlaceableUpgrade(GameObject upgrade)
+    {
+        upgradeToPlace = upgrade;
+        placeablePlaceholder.SetActive(true);
+    }
+    public void PlacePlaceableUpgrade(Vector3 placement)
+    {
+        if (!upgradeToPlace)
+        {
+            Debug.LogWarning("Tried to place an upgrade but no upgrade was given");
+            return;
+        }
+
+        GameObject obj = Instantiate(upgradeToPlace);
+        obj.transform.localPosition = placement;
+
+        upgradeToPlace = null;
+    }
+
+    public void PlaceFirstInfected(Vector3 placement)
+    {
+        GameObject obj = Instantiate(firstInfectedToPlace);
+        obj.transform.localPosition = placement;
+
+        StartGame();
     }
 }
