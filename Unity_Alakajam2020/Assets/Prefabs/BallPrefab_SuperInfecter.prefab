@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b665d98422ee43688d81b37fd30bad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBall: {fileID: 0}
+  baseBall: {fileID: 3699677346477313732}
   sphereRadius: 0.5
 --- !u!54 &-7432571408827847800
 Rigidbody:

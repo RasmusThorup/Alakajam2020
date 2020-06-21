@@ -167,8 +167,8 @@ MonoBehaviour:
   dead: 0
   debug: 0
   isMedic: 0
-  animationSpeed: 0.2
-  classSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  animationSpeed: 0.4
+  classSetting: {fileID: 11400000, guid: c60c516ca2f404ab6a76f47cb0938ecb, type: 2}
   prefab: {fileID: 7489296158304646131, guid: f18da78e9c14b4cf78173e918c2d8ace, type: 3}
   spawnAmount: 2
 --- !u!1 &8107083263521043753

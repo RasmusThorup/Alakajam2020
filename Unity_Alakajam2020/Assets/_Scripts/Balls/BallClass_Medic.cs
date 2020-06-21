@@ -13,8 +13,9 @@ public class BallClass_Medic : BaseBall
         m_cachedVirusLevel = classSetting.virusLevel;
         m_cachedSpeed = classSetting.speed;
 
-        base.OnEnable();
+        useLifeTime = false;
         isMedic = true;
+        base.OnEnable();
         StartCoroutine(ScaleUp());
     }
 
@@ -28,7 +29,6 @@ public class BallClass_Medic : BaseBall
             
             if (Random.value < healChance)
             {
-                otherBall.infected = false;
                 otherBall.SetHealed();
             }
             else

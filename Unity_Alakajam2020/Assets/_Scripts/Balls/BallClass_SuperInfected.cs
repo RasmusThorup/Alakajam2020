@@ -9,14 +9,15 @@ public class BallClass_SuperInfected : BaseBall
     public override void OnEnable()
     {
 
-        m_cachedTriggerRadius = citizenSetting.triggerRadius;
-        m_cachedLifeTime = citizenSetting.lifeTime;
-        m_cachedVirusLevel = citizenSetting.virusLevel;
-        m_cachedSpeed = citizenSetting.speed;
+        m_cachedTriggerRadius = classSetting.triggerRadius;
+        m_cachedLifeTime = classSetting.lifeTime;
+        m_cachedVirusLevel = classSetting.virusLevel;
+        m_cachedSpeed = classSetting.speed;
 
-        //infected = true;
+        infected = true;
+        useLifeTime = true;
         base.OnEnable();
-        //StartCoroutine(ScaleUp());
+        StartCoroutine(ScaleUp());
     }
 
     public override void SetInfected()
