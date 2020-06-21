@@ -52,14 +52,13 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("Place infected");
         placeablePlaceholder.SetActive(true);
-        // StartGame(); 
+        waveManager.Init();
     }
 
     public void StartGame()
     {
         m_cachedTimeBeforeGameEnds = timeBeforeGameEnds; 
         gameHasStarted = true; 
-        waveManager.Init();
     }
 
 
@@ -139,6 +138,7 @@ public class GameManager : MonoBehaviour
     public void PlaceFirstInfected(Vector3 placement)
     {
         GameObject obj = Instantiate(firstInfectedToPlace);
+        obj.GetComponent<BaseBall>().SetInfected();
         obj.transform.localPosition = placement;
 
         StartGame();

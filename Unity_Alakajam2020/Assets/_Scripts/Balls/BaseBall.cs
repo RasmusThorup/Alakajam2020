@@ -45,13 +45,13 @@ public class BaseBall : MonoBehaviour
     {
         dead = false;
         wavemanager.activeBallList.Add(this);
-        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
+        //Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public virtual void OnDisable()
     {
         wavemanager.activeBallList.Remove(this);
-        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
+        //Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public virtual void Update()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 [System.Serializable]
 public class BallSpawnValue
@@ -42,9 +43,14 @@ public class WaveManager : MonoBehaviour
     public List<BaseBall> activeBallList = new List<BaseBall>();
     public List<BallSpawnValue> ballTypes = new List<BallSpawnValue>();
 
+    [BoxGroup("Wave Setup")]
     public float timeToSpawn;
-
+    [BoxGroup("Wave Setup")]
     public float waveTime;
+    [BoxGroup("First Wave Setup")]
+    public int firstWaveCitizentsAmount;
+    [BoxGroup("First Wave Setup")]
+    public float firstWaveSpawnTime = 3;
     private float currentTime;
 
     private int waveCounter;
@@ -56,8 +62,8 @@ public class WaveManager : MonoBehaviour
 
     public void Init()
     {
-        currentTime = 0;
-        //BallPooler.Instance.SpawnBalls(ballSpawn.ballName, ballSpawnAmount, timeToSpawn);
+        currentTime = waveTime;
+        BallPooler.Instance.SpawnBalls("Citizen", firstWaveCitizentsAmount, firstWaveSpawnTime);
     }
 
     public void Update()
