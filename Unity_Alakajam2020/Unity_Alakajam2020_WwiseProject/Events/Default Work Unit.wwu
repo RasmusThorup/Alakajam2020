@@ -68,9 +68,13 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="UI" ID="{6D79EEEF-3ADE-4831-817E-1438B93E4A16}">
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{ABDCE0C3-150F-4BE1-8A03-223A4E55DCA0}" ShortID="506948280">
+					<ChildrenList>
+						<Event Name="ui_hover_On" ID="{C7DA2D09-7CFE-4F4E-A32D-5F243B4F9C49}">
 							<ChildrenList>
-								<Action Name="" ID="{1D90F668-E4EC-41E8-B732-E178AF3A4CBF}" ShortID="922639974">
+								<Action Name="" ID="{22E53CE3-BA99-488E-B14E-9FE063517EA5}" ShortID="710580762">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
@@ -80,7 +84,7 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
-								<Action Name="" ID="{A1AB1923-34A0-4F15-8F60-F1FDC4481072}" ShortID="351362594">
+								<Action Name="" ID="{F1D0F5BC-1796-4428-8E78-1F6B6A819642}" ShortID="573642808">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
@@ -89,6 +93,74 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="ui_hover_off" ID="{D96F1515-EDF5-425B-B05D-225EAB97737C}">
+							<ChildrenList>
+								<Action Name="" ID="{1BCA9FC6-919F-4DBE-A49C-D6725C48A450}" ShortID="1017846439">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{E3013659-C855-42CD-8748-D3FD951541CA}" ShortID="656859648">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ui_button_activate" ID="{23A00969-D584-4C59-837A-90A59E36FC9E}">
+							<ChildrenList>
+								<Action Name="" ID="{3FA1C676-DB9F-4D8D-8083-4FE7B77474AD}" ShortID="1051033644">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{702AED2A-09F0-4F49-B7D7-9E914314CF0D}" ShortID="581490782">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ui_spawn" ID="{95145140-1171-4E29-B53F-226FEA4E7B7C}">
+							<ChildrenList>
+								<Action Name="" ID="{92198249-FD4D-4BCE-A1F4-91E608128C63}" ShortID="27495462">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{A2A57CF8-A49C-4757-A5F9-4EBCF1DFF740}" ShortID="1029241492">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment" ID="{B07C29BB-A111-46F9-83EA-77ACC977CB8C}" ShortID="487410460">
+					<ChildrenList>
+						<Event Name="env_level" ID="{CF6A92EC-CFE8-400E-9F34-AAA679C58940}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

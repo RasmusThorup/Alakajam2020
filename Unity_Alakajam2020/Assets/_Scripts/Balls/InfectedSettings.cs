@@ -5,11 +5,25 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class InfectedSettings : ScriptableObject
 {
-    public float lifeTime = 10;
-    public float triggerRadius = 5;
-    public int virusLevel = 100;
-    public int speed = 5;
 
+    [SerializeField] private float baseLifeTime = 10f;
+    [SerializeField] private float baseTriggerRadius = 5f;
+    [SerializeField] private int baseVirusLevel = 100;
+    [SerializeField] private int baseSpeed = 5;
+
+    [HideInInspector] public float lifeTime;
+    [HideInInspector] public float triggerRadius;
+    [HideInInspector] public int virusLevel;
+    [HideInInspector] public int speed;
+
+    // Initialize coolDown with editor's value
+    private void OnEnable()
+    {
+        lifeTime = baseLifeTime;
+        triggerRadius = baseTriggerRadius;
+        virusLevel = baseVirusLevel;
+        speed = baseSpeed;
+    }
 
     public void SetLifeTime(float value)
     {
@@ -31,7 +45,6 @@ public class InfectedSettings : ScriptableObject
         
     }
     
-    
     public void SetVirusLevel(int value)
     {
         virusLevel += value;
@@ -48,8 +61,5 @@ public class InfectedSettings : ScriptableObject
         {
             speed = 1; 
         }
-    }
-    
-    
-    
+    } 
 }

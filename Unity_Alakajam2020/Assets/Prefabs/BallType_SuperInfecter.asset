@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514a10562356343b19e589c85a65b735, type: 3}
   m_Name: BallType_SuperInfecter
   m_EditorClassIdentifier: 
-  lifeTime: 4
+  baseLifeTime: 4
+  baseTriggerRadius: 7
+  baseVirusLevel: 200
+  baseSpeed: 20
+  lifeTime: 10
   triggerRadius: 5
-  virusLevel: 10000
-  speed: 35
+  virusLevel: 100
+  speed: 5
