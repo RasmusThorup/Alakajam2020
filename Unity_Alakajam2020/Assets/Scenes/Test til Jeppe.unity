@@ -503,6 +503,7 @@ MonoBehaviour:
   waveManager: {fileID: 1111263144}
   gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
   gameHasStarted: 0
+  timeBeforeGameEnds: 5
 --- !u!4 &1111263141
 Transform:
   m_ObjectHideFlags: 0
@@ -772,6 +773,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611342404, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0

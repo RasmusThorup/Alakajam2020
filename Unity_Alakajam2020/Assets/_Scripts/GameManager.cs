@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     public UIManager UiManager;
     public WaveManager waveManager; 
     public Vector4 gameAreaEdges;
-    public bool gameHasStarted = false; 
+    public bool gameHasStarted = false;
+    public float timeBeforeGameEnds = 5f;
+    private float m_cachedTimeBeforeGameEnds; 
 
     //-----Singleton-----
     private static GameManager _instance;
@@ -33,7 +35,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        UiManager.ShowTitleScreen(true);
+    }
+
+    public void StartGame()
+    {
+        m_cachedTimeBeforeGameEnds = timeBeforeGameEnds; 
         gameHasStarted = true; 
+        waveManager.Init();
     }
 
 
@@ -45,8 +54,19 @@ public class GameManager : MonoBehaviour
             return; 
         }
 
-        GetCurrentInfectedBalls();
-        
+        if (GetCurrentInfectedBalls())
+        {
+            m_cachedTimeBeforeGameEnds = timeBeforeGameEnds; 
+        }
+        else
+        {
+            m_cachedTimeBeforeGameEnds -= Time.deltaTime; 
+        }
+
+        if (m_cachedTimeBeforeGameEnds <= 0)
+        {
+            EndGame();
+        }
     }
 
 
@@ -58,7 +78,6 @@ public class GameManager : MonoBehaviour
         {
             return false; 
         }
-        //int currentCitizens; 
         for (int i = 0; i < ballsAmount; i++)
         {
             if (waveManager.activeBallList[i].infected)
@@ -76,15 +95,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateUpgrades()
     {
+        UiManager.ShowUpgradeUI(true);
         
         //Show buy screen. 
     }
 
     public void EndGame()
     {
-        // Show UI. Register HighScore 
-        
-        
-        
+        UiManager.ShowUpgradeUI(false);
+        UiManager.ShowEndScreen(true);
+        gameHasStarted = false;
     }
 }

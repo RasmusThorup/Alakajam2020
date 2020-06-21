@@ -52,12 +52,19 @@ public class WaveManager : MonoBehaviour
 
     public void Start()
     {
-        //TODO this should be happening in the start game function
+
+    }
+
+    public void Init()
+    {
         currentTime = 0;
     }
 
     public void Update()
     {
+        if (!GameManager.Instance.gameHasStarted) return;
+        
+        
         if (currentTime <= 0)
         {
             waveCounter++;

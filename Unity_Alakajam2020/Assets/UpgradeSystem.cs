@@ -68,7 +68,7 @@ public class UpgradeSystem : MonoBehaviour
             }
             else
             {
-                //Spawn obj. 
+                
             }
           
 
