@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using NaughtyAttributes;
 
 public class PlayableArea : MonoBehaviour
 {
@@ -16,9 +16,34 @@ public class PlayableArea : MonoBehaviour
     int[] triangles;
 
     Vector2[] uv;
+    Vector2 offset = new Vector2(0,0);
+    Vector2 padding = new Vector2(0,0);
 
-    public Vector2 offset = new Vector2(0,3);
-    public Vector2 padding = new Vector2(10,15);
+    public LineRenderer lineRenderer;
+
+    [BoxGroup("Mesh Shrink")]
+    [ReadOnly]
+    public bool meshIsShrink;
+    [BoxGroup("Mesh Shrink")]
+    public Vector2 shrinkAmount = new Vector2(5, 5);
+    [BoxGroup("Mesh Shrink")]
+    public float shrinkTransitionTime = 5;
+    [BoxGroup("Mesh Shrink")]
+    public float shrinkActiveTime = 10;
+    [BoxGroup("Mesh Shrink")]
+    public AnimationCurve shrinkCurve;
+    [BoxGroup("Mesh Shrink")]
+    public float maxEdgeWidth = 0.2f;
+
+    //-- Ugly singleton
+    public static PlayableArea Instance;
+    private void Awake()
+    {
+        Instance = this;
+        lineRenderer.startWidth = 0;
+        lineRenderer.endWidth = 0;
+    }
+    //--
 
     void Start()
     {
@@ -27,8 +52,8 @@ public class PlayableArea : MonoBehaviour
 
         triangles = new int[]
         {
-            0,1,2,
-            1,3,2
+            0,1,3,
+            1,2,3
         };
 
         mainCam = Camera.main;
@@ -36,8 +61,11 @@ public class PlayableArea : MonoBehaviour
 
     void LateUpdate()
     {
-        if (oldAspect == mainCam.aspect) //Early out if aspect hasn't changed
-            return;
+        if (!meshIsShrink)
+        {
+            if (oldAspect == mainCam.aspect) //Early out if aspect hasn't changed
+                return;
+        }
 
         float height = 2.0f * Mathf.Tan(0.5f * mainCam.fieldOfView * Mathf.Deg2Rad)* 40.0f;
         float width = height * mainCam.aspect;
@@ -51,16 +79,19 @@ public class PlayableArea : MonoBehaviour
         oldAspect = mainCam.aspect;
         GameManager.Instance.gameAreaEdges = gameAreaEdges;
 
-        if (!generateMesh)
-            return;
-
         vertices = new Vector3[]
         {
             new Vector3 (gameAreaEdges.x,gameAreaEdges.z,0),
             new Vector3 (gameAreaEdges.x,gameAreaEdges.w,0),
-            new Vector3 (gameAreaEdges.y,gameAreaEdges.z,0),
-            new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0)
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0),
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.z,0)
         };
+
+        lineRenderer.SetPositions(vertices);
+
+        if (!generateMesh)
+            return;
+
 
         uv = new Vector2[vertices.Length];
         for (int i = 0; i < uv.Length; i++)
@@ -80,5 +111,40 @@ public class PlayableArea : MonoBehaviour
 
         mesh.RecalculateNormals();
         mesh.uv = uv;
+    }
+
+    [Button]
+    public void ShrinkArea()
+    {
+        if (meshIsShrink)
+            return;
+        meshIsShrink = true;
+        StartCoroutine(ShrinkArea_Coroutine());
+    }
+
+    IEnumerator ShrinkArea_Coroutine()
+    {
+        yield return pTween.To(shrinkTransitionTime, 0, 1, t =>{
+            float a = shrinkCurve.Evaluate(t);
+            padding = shrinkAmount*a;
+
+            float width = Mathf.Clamp(t*2,0,maxEdgeWidth);
+            lineRenderer.startWidth = width;
+            lineRenderer.endWidth = width;
+        });
+
+        yield return new WaitForSeconds(shrinkActiveTime);
+
+        yield return pTween.To(shrinkTransitionTime, 1, 0, t =>{
+            float a = shrinkCurve.Evaluate(t);
+            padding = shrinkAmount*a;
+
+            float width = Mathf.Clamp(t*2,0,maxEdgeWidth);
+            lineRenderer.startWidth = width;
+            lineRenderer.endWidth = width;
+        });
+
+        meshIsShrink = false;
+        yield break;
     }
 }
