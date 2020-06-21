@@ -16,7 +16,6 @@ public class BaseBall : MonoBehaviour
     public bool infected;
     public bool dead;
     public bool debug = false;
-
     public bool isMedic;
     public float animationSpeed = 0.2f;
 
@@ -88,13 +87,14 @@ public class BaseBall : MonoBehaviour
         m_cachedLifeTime = citizenSetting.lifeTime;
         m_cachedVirusLevel = citizenSetting.virusLevel;
         m_cachedSpeed = citizenSetting.speed;
+        GameManager.Instance.scoreManager.DecreaseScore(100);
         StartCoroutine(ScaleToNormal());
     }
 
     protected virtual void OnDeath()
     {
         dead = true;
-        Debug.Log("I Died!");
+       // Debug.Log("I Died!");
     }
 
     public IEnumerator ScaleUp()

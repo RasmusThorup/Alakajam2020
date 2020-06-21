@@ -24,6 +24,16 @@ public class ScoreManager : MonoBehaviour
         GameManager.Instance.UiManager.score.SetText(currentScore.ToString());
     }
 
+    public void DecreaseScore(int scoreValue)
+    { 
+        currentScore -= scoreValue;
+        if (currentScore <= 0)
+        {
+            currentScore = 0; 
+        }
+        GameManager.Instance.UiManager.score.SetText(currentScore.ToString());
+    }
+
     public int GetHighScore()
     {
         int score = PlayerPrefs.GetInt("HighScore", 0);
