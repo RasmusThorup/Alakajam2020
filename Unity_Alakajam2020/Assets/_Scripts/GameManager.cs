@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (displayScaledInfected < scaledInfected)
         {
             displayScaledInfected++; 
-            UiManager.percentInfected.SetText("Infected: " + displayScaledInfected.ToString("F1") + "%");
+            UiManager.percentInfected.SetText("Infected: " + displayScaledInfected.ToString("F0") + "%");
         }
     }
 
