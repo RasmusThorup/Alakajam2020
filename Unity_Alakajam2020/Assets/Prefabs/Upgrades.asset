@@ -25,7 +25,7 @@ MonoBehaviour:
     ToolTipText: 'Increase normal infecteds speed at the cost of their size '
     Type: 2
     PosChange: 3
-    negChange: -2
+    negChange: -1
     spawn: {fileID: 0}
     isPlaceableObject: 0
   - Text: +Size/-Virus Level
