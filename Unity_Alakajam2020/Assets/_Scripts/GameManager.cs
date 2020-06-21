@@ -38,6 +38,13 @@ public class GameManager : MonoBehaviour
         UiManager.ShowTitleScreen(true);
     }
 
+    public void PlaceInfected()
+    {
+        
+        
+        // StartGame(); 
+    }
+
     public void StartGame()
     {
         m_cachedTimeBeforeGameEnds = timeBeforeGameEnds; 

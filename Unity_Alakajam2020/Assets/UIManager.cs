@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     public void OnPlayPressed()
     {
         titleScreen.SetActive(false);
-        GameManager.Instance.StartGame();
+        GameManager.Instance.PlaceInfected();
         
     }
 
