@@ -68,25 +68,25 @@ public class BallPooler : MonoBehaviour
         return objectToSpawn;
     }
 
-    public void SpawnBalls(string tag, int amount, Vector2 ranPosXMinMax, Vector2 ranPosYMinMax, float timeToSpawnTheAmount)
+    public void SpawnBalls(string tag, int amount, float timeToSpawnTheAmount)
     {
         if (amount == 0)
         {
             Debug.LogWarning("Tried to spawn 0 amount of balls, no can do mister");
             return;
         }
-        StartCoroutine(SpawnTheBallsCoroutine(tag, amount, ranPosXMinMax, ranPosYMinMax, timeToSpawnTheAmount));
+        StartCoroutine(SpawnTheBallsCoroutine(tag, amount, timeToSpawnTheAmount));
 
     }
 
-    IEnumerator SpawnTheBallsCoroutine(string tag, int amount, Vector2 ranPosXMinMax, Vector2 ranPosYMinMax, float timeToSpawnTheAmount)
+    IEnumerator SpawnTheBallsCoroutine(string tag, int amount, float timeToSpawnTheAmount)
     {
         float timeBetweenBalls = timeToSpawnTheAmount/amount;
         
         for (int i = 0; i < amount; i++)
         {   
-            float x = Random.Range(ranPosXMinMax.x,ranPosXMinMax.y);
-            float y = Random.Range(ranPosYMinMax.x,ranPosYMinMax.y);
+            float x = Random.Range(GameManager.Instance.gameAreaEdges.x,GameManager.Instance.gameAreaEdges.y);
+            float y = Random.Range(GameManager.Instance.gameAreaEdges.z,GameManager.Instance.gameAreaEdges.w);
             SpawnFromPool(tag,new Vector2(x, y));
             yield return new WaitForSeconds(timeBetweenBalls);
         }
@@ -97,7 +97,6 @@ public class BallPooler : MonoBehaviour
     [Button("Test Spawn 69 Balls over 4.20 seconds with tag Debug")]
     void TestTriggerSpawner()
     {
-        SpawnBalls("Debug", 69, new Vector2(GameManager.Instance.gameAreaEdges.x,GameManager.Instance.gameAreaEdges.y), 
-        new Vector2(GameManager.Instance.gameAreaEdges.z,GameManager.Instance.gameAreaEdges.w), 4.2f);
+        SpawnBalls("Debug", 69, 4.2f);
     }
 }

@@ -5690,6 +5690,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1300255935399172784, guid: 1c0fcfb640ff10148bfbc28b3436c533,
+        type: 3}
+      propertyPath: generateMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1300255935399172785, guid: 1c0fcfb640ff10148bfbc28b3436c533,
         type: 3}
       propertyPath: m_Name
@@ -5964,9 +5969,64 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
         type: 3}
+      propertyPath: pools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
       propertyPath: pools.Array.data[0].prefab
       value: 
       objectReference: {fileID: 452939458}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[1].tag
+      value: Debug
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 452939458}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[1].size
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[2].tag
+      value: Person
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 452939458}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[2].size
+      value: 149
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[3].tag
+      value: QuarantineBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 452939458}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 5527171189731329129, guid: 0f4ce1284979a426f9f37a35f365df71,
         type: 3}
       propertyPath: m_Name
