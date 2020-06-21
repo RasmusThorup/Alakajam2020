@@ -8,6 +8,8 @@ public class BaseBall : MonoBehaviour
     public InfectedSettings infectedSetting;
     public InfectedSettings citizenSetting;
 
+    public WaveManager wavemanager;
+
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
     public float m_cachedVirusLevel;
@@ -19,10 +21,16 @@ public class BaseBall : MonoBehaviour
     public bool isMedic;
     public float animationSpeed = 0.2f;
 
+    private void Awake()
+    {
+        wavemanager = WaveManager.instance;
+    }
 
     public virtual void OnEnable()
     {
         dead = false;
+        wavemanager.activeBallList.Add(this);
+        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public virtual void Update()
@@ -34,7 +42,7 @@ public class BaseBall : MonoBehaviour
                 SetInfected();
             }
         }
-       
+
         if (infected)
         {
             if (m_cachedLifeTime <= 0)
@@ -45,7 +53,7 @@ public class BaseBall : MonoBehaviour
                 }
             }
             m_cachedLifeTime -= Time.deltaTime;
-        } 
+        }
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -56,9 +64,9 @@ public class BaseBall : MonoBehaviour
 
             if (otherBall == null || otherBall.isMedic)
             {
-                return; 
+                return;
             }
-            
+
             if (!otherBall.infected)
             {
                 float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
@@ -94,7 +102,9 @@ public class BaseBall : MonoBehaviour
     protected virtual void OnDeath()
     {
         dead = true;
-       // Debug.Log("I Died!");
+        Debug.Log("I Died!");
+        wavemanager.activeBallList.Remove(this);
+        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public IEnumerator ScaleUp()
@@ -154,4 +164,3 @@ public class BaseBall : MonoBehaviour
         this.transform.localScale = targetSize;
     }
 }
-
