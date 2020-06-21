@@ -13,51 +13,51 @@ MonoBehaviour:
   m_Name: Upgrades
   m_EditorClassIdentifier: 
   upgrades:
-  - Text: +Virus Level/ -Life
-    ToolTipText: Increase normal infecteds Chance to infect, but decrease the time
-      they survive
+  - Text: +Infection level/ -Life
+    ToolTipText: Increase chance to infect, but decrease survival time
     Type: 1
     PosChange: 10
     negChange: -2
     spawn: {fileID: 0}
     isPlaceableObject: 0
   - Text: + Speed/-Size
-    ToolTipText: 'Increase normal infecteds speed at the cost of their size '
+    ToolTipText: 'Increases speed at the cost of size '
     Type: 2
     PosChange: 3
     negChange: -1
     spawn: {fileID: 0}
     isPlaceableObject: 0
-  - Text: +Size/-Virus Level
-    ToolTipText: Increase normal infecteds size at the cost of their chance to infect
+  - Text: +Size/-Infection level
+    ToolTipText: Increase size at the cost of infection level
     Type: 3
     PosChange: 2
-    negChange: -10
+    negChange: -5
     spawn: {fileID: 0}
     isPlaceableObject: 0
   - Text: +Life/-Speed
-    ToolTipText: Increase normal infecteds life at the cost of their speed
+    ToolTipText: Increase life time at the cost of speed
     Type: 4
-    PosChange: 4
-    negChange: -3
+    PosChange: 3
+    negChange: -2
     spawn: {fileID: 0}
     isPlaceableObject: 0
   - Text: Super Infecter
-    ToolTipText: Spawns an infecter that are very fast but dies quickly
+    ToolTipText: Spawns an infector with high speed and infection level, but a short
+      lifespan
     Type: 0
     PosChange: 0
     negChange: 0
     spawn: {fileID: 7489296158304646131, guid: 89bd963761baa40eca66b0213a5a092f, type: 3}
     isPlaceableObject: 1
   - Text: Splitter
-    ToolTipText: Spawns an infecter that Splits into serveral infted when it dies.
+    ToolTipText: Spawns an infector that splits into two infectors on death
     Type: 0
     PosChange: 0
     negChange: 0
     spawn: {fileID: 7489296158304646131, guid: bcc8f2c1c1ced483cbac79ffb197366e, type: 3}
     isPlaceableObject: 1
   - Text: Quarantine
-    ToolTipText: Spawns an infecter that are stationary but have very long lifetime
+    ToolTipText: Spawns an stationary infector, with a longer lifespan and radius
     Type: 0
     PosChange: 0
     negChange: 0

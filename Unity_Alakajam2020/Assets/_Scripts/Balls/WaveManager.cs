@@ -75,6 +75,7 @@ public class WaveManager : MonoBehaviour
             waveCounter++;
             NewWave();
             GameManager.Instance.UiManager.ShowUpgradeUI(true);
+            GameManager.Instance.UiManager.ShowWaveTimer(true);
             currentTime = waveTime;
         }
         currentTime -= Time.deltaTime;

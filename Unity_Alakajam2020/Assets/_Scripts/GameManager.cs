@@ -21,7 +21,10 @@ public class GameManager : MonoBehaviour
     [ReadOnly]
     public bool gameHasStarted = false;
     public float timeBeforeGameEnds = 5f;
-    private float m_cachedTimeBeforeGameEnds; 
+    private float m_cachedTimeBeforeGameEnds;
+
+    private float scaledInfected;
+    private float displayScaledInfected;
 
     //-----Singleton-----
     private static GameManager _instance;
@@ -29,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         get { return _instance; }
     }
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -64,7 +66,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (!gameHasStarted)
         {
             return; 
@@ -82,6 +83,12 @@ public class GameManager : MonoBehaviour
         if (m_cachedTimeBeforeGameEnds <= 0)
         {
             EndGame();
+        }
+        
+        if (displayScaledInfected < scaledInfected)
+        {
+            displayScaledInfected++; 
+            UiManager.percentInfected.SetText("Infected: " + displayScaledInfected.ToString("F0") + "%");
         }
     }
 
@@ -101,10 +108,8 @@ public class GameManager : MonoBehaviour
                 currentInfected++; 
             }
         }
-
-        float scaledInfected = (currentInfected / ballsAmount) * 100;
-        UiManager.percentInfected.SetText("Infected: " + scaledInfected.ToString("F1") + "%");
-
+        
+        scaledInfected = (currentInfected / ballsAmount) * 100;
         return currentInfected > 0;
     }
 
@@ -114,7 +119,6 @@ public class GameManager : MonoBehaviour
         UiManager.ShowEndScreen(true);
         gameHasStarted = false;
     }
-
     
     public void EnablePlaceableUpgrade(GameObject upgrade)
     {

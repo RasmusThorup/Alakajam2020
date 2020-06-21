@@ -15,8 +15,8 @@ MonoBehaviour:
   baseLifeTime: 10000
   baseTriggerRadius: 1
   baseVirusLevel: 10
-  baseSpeed: 7
-  lifeTime: 10
-  triggerRadius: 5
-  virusLevel: 100
-  speed: 5
+  baseSpeed: 12
+  lifeTime: 10000
+  triggerRadius: 1
+  virusLevel: 10
+  speed: 12

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
@@ -14,15 +15,47 @@ public class UIManager : MonoBehaviour
     public GameObject titleScreen; 
     public TextMeshProUGUI endScreenScore; 
     public TextMeshProUGUI endScreenHighScore;
-    public TextMeshProUGUI percentInfected; 
+    public TextMeshProUGUI percentInfected;
+    public TextMeshProUGUI menuHighScore;
+    public GameObject waveCounter;
+    public float waveCounterTimer = 4f;
+    private float cachedTimer; 
+    private bool waveCounterVisible;
+
+    private void Start()
+    {
+        cachedTimer = waveCounterTimer; 
+    }
+
+    private void Update()
+    {
+        if (waveCounterVisible)
+        {
+            if (cachedTimer < 0)
+            {
+                ShowWaveTimer(false);
+                cachedTimer = waveCounterTimer;
+            }
+
+            cachedTimer -= Time.deltaTime; 
+
+        }
+    }
+
+    public void ShowWaveTimer(bool visibility)
+    {
+        
+        waveCounter.SetActive(visibility);
+        waveCounterVisible = visibility;
+
+    }
 
     public void ShowUpgradeUI(bool visibility)
     { 
         upgradeUI.SetActive(visibility);
        upgradeSystem.RefreshUpgrades();
     }
-
-
+    
     public void ShowEndScreen(bool visibility)
     {
         endScreen.SetActive(visibility);
@@ -33,6 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowTitleScreen(bool visibility)
     {
+        menuHighScore.SetText(GameManager.Instance.scoreManager.GetHighScore().ToString());
         titleScreen.SetActive(visibility);
     }
 
@@ -46,5 +80,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name); 
     }
+    
+    
 
 }

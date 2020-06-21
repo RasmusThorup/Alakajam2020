@@ -148,7 +148,7 @@ MonoBehaviour:
   gameAreaEdges: {x: 0, y: 0, z: 0, w: 0}
   upgradeToPlace: {fileID: 0}
   gameHasStarted: 0
-  timeBeforeGameEnds: 5
+  timeBeforeGameEnds: 1
 --- !u!114 &5527171189731329128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,15 +178,15 @@ MonoBehaviour:
   - tag: Citizen
     prefab: {fileID: 7489296158304646131, guid: 9454c5811645dde45877d39d6358061f,
       type: 3}
-    size: 50
+    size: 100
   - tag: Medic
     prefab: {fileID: 4515583368289876781, guid: 53d341e36421740d3b3856db65465b18,
       type: 3}
     size: 50
-  - tag: Debug
-    prefab: {fileID: 7489296158304646131, guid: 9454c5811645dde45877d39d6358061f,
+  - tag: HealArea
+    prefab: {fileID: 7489296158304646131, guid: 0f02025c950204706b66b92a7d3c1743,
       type: 3}
-    size: 70
+    size: 50
 --- !u!114 &2484468758308264134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,14 +202,18 @@ MonoBehaviour:
   activeBallList: []
   ballTypes:
   - ballName: Citizen
-    ballAmount: 10
+    ballAmount: 5
     additionalBallSpawn: 2
     ballSpawnChance: 0.8
   - ballName: Medic
     ballAmount: 1
     additionalBallSpawn: 5
     ballSpawnChance: 0.5
+  - ballName: HealArea
+    ballAmount: 1
+    additionalBallSpawn: 5
+    ballSpawnChance: 0.5
   timeToSpawn: 5
-  waveTime: 30
-  firstWaveCitizentsAmount: 10
+  waveTime: 15
+  firstWaveCitizentsAmount: 15
   firstWaveSpawnTime: 0.5

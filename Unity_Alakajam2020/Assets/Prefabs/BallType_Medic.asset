@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BallType_Medic
   m_EditorClassIdentifier: 
   baseLifeTime: 1000
-  baseTriggerRadius: 9
-  baseVirusLevel: 150
-  baseSpeed: 5
-  lifeTime: 10
-  triggerRadius: 5
-  virusLevel: 100
-  speed: 5
+  baseTriggerRadius: 10
+  baseVirusLevel: 200
+  baseSpeed: 7
+  lifeTime: 1000
+  triggerRadius: 10
+  virusLevel: 200
+  speed: 7

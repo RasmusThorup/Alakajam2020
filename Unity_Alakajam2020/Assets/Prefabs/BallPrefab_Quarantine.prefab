@@ -169,13 +169,23 @@ MonoBehaviour:
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
+  currentHealth: 0
+  startHealth: 0
   m_cachedSpeed: 0
+  isScaling: 0
   infected: 0
   useLifeTime: 0
+  useHealth: 0
   dead: 0
   debug: 0
   isMedic: 0
   animationSpeed: 0.4
+  infectedColorCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   classSetting: {fileID: 11400000, guid: 5130296849e6b46939ecb27927899b33, type: 2}
 --- !u!1 &8107083263521043753
 GameObject:
