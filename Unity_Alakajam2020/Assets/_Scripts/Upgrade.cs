@@ -18,8 +18,8 @@ public class Upgrade : ScriptableObject
         public Color Middle;
         public Color Inner;
         public UpgradeType Type;
-        public float PosChange;
-        public float negChange;
+        public int PosChange;
+        public int negChange;
         public GameObject spawn; 
         public Sprite Icon;
     }

@@ -29,8 +29,6 @@ public class UpgradeSystem : MonoBehaviour
     private int m_Choice2;
     private int m_Choice3;
     
-    
-    
     public void PopulateChoice(Choice choice, Upgrade.UpgradeInfo info)
     {
         choice.Text.text = info.Text;
@@ -48,15 +46,22 @@ public class UpgradeSystem : MonoBehaviour
                 switch (info.Type)
                 {
                     case Upgrade.UpgradeType.MoreLevelLessLife:
-                        // Change Settings
+                        infectedSetting.SetVirusLevel(info.PosChange);
+                        infectedSetting.SetLifeTime(info.negChange);
                         break;
                     case Upgrade.UpgradeType.MoreLifeLessSpeed:
+                        infectedSetting.SetLifeTime(info.PosChange);
+                        infectedSetting.SetSpeed(info.negChange); 
                         // Change Settings
                         break;
                     case Upgrade.UpgradeType.MoreRadiusLessLevel:
+                        infectedSetting.SetTriggerRadius(info.PosChange);
+                        infectedSetting.SetVirusLevel(info.negChange); 
                         // Change Settings
                         break;
                     case Upgrade.UpgradeType.MoreSpeedLessRadus:
+                        infectedSetting.SetSpeed(info.PosChange);
+                        infectedSetting.SetTriggerRadius(info.negChange); 
                         // Change Settings
                         break;
                 }

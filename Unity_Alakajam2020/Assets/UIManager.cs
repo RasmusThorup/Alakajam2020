@@ -7,14 +7,15 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI score;
-    public Image shopUI;
+    public GameObject upgradeUI;
     public Image endScreen;
     public TextMeshProUGUI endScreenScore; 
-    public TextMeshProUGUI endScreenHighScore; 
+    public TextMeshProUGUI endScreenHighScore;
+    public TextMeshProUGUI percentInfected; 
 
     public void ShowShopUI(bool visibility)
     {
-        shopUI.enabled = visibility;
+        upgradeUI.SetActive(visibility);
     }
 
 
