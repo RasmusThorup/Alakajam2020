@@ -22,6 +22,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     
     public Upgrade Settings;
+    public InfectedSettings infectedSetting;
     public Choice[] Choices = System.Array.Empty<Choice>();
     
     private int m_Choice1;
@@ -73,6 +74,11 @@ public class UpgradeSystem : MonoBehaviour
     
     private void OnEnable()
     {
+
+        if (Settings.upgrades.Length == 0)
+        {
+            return; 
+        }
         m_Choice1 = Random.Range(0, Settings.upgrades.Length);
         m_Choice2 = m_Choice1;
         while (m_Choice1 == m_Choice2)
