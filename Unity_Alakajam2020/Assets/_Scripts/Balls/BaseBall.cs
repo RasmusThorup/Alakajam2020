@@ -19,7 +19,7 @@ public class BaseBall : MonoBehaviour
     public bool dead;
     public bool debug = false;
     public bool isMedic;
-    public float animationSpeed = 0.2f;
+    public float animationSpeed = 0.4f;
 
     private void Awake()
     {
