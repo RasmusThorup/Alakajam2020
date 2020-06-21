@@ -72,12 +72,13 @@ public class UpgradeSystem : MonoBehaviour
             }
           
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            GameManager.Instance.UiManager.ShowUpgradeUI(false);
         });
     }
     
     
-    private void OnEnable()
+    public void RefreshUpgrades()
     {
 
         if (Settings.upgrades.Length == 0)
@@ -101,7 +102,7 @@ public class UpgradeSystem : MonoBehaviour
         PopulateChoice(Choices[1], Settings.upgrades[m_Choice2]);
         PopulateChoice(Choices[2], Settings.upgrades[m_Choice3]);
 
-        Choices[1].Button.Select();
+        //Choices[1].Button.Select();
     }
 
     

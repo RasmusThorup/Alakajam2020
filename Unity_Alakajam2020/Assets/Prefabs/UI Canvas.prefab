@@ -3310,6 +3310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 5307001910506112879}
   upgradeUI: {fileID: 611342404}
+  upgradeSystem: {fileID: 7999531142769961449}
   endScreen: {fileID: 589032078506913860}
   titleScreen: {fileID: 4692466804568030451}
   endScreenScore: {fileID: 4670486027831857813}

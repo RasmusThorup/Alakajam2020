@@ -16,7 +16,6 @@ public class BallSpawnValue
         this.ballAmount = amount;
         this.additionalBallSpawn = additionalSpawn;
         this.ballSpawnChance = spawnChance;
-
     }
 }
 
@@ -69,6 +68,7 @@ public class WaveManager : MonoBehaviour
         {
             waveCounter++;
             NewWave();
+            GameManager.Instance.UiManager.ShowUpgradeUI(true);
             currentTime = waveTime;
         }
         currentTime -= Time.deltaTime;
