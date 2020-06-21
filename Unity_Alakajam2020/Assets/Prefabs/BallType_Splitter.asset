@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 514a10562356343b19e589c85a65b735, type: 3}
-  m_Name: BallType_SuperInfecter
+  m_Name: BallType_Splitter
   m_EditorClassIdentifier: 
-  lifeTime: 4
+  lifeTime: 15
   triggerRadius: 5
-  virusLevel: 10000
-  speed: 35
+  virusLevel: 10
+  speed: 5

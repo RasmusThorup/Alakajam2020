@@ -13,8 +13,10 @@ public class BallClass_HealArea : BaseBall
         m_cachedVirusLevel = classSetting.virusLevel;
         m_cachedSpeed = classSetting.speed;
 
-        base.OnEnable();
+
+        useLifeTime = true;
         isMedic = true;
+        base.OnEnable();
         StartCoroutine(ScaleUp());
     }
 
@@ -28,7 +30,6 @@ public class BallClass_HealArea : BaseBall
             
             if (Random.value < healChance)
             {
-                otherBall.infected = false;
                 otherBall.SetHealed();
             }
             else

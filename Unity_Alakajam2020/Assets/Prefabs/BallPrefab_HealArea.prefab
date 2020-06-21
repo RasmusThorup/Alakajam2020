@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 50eb20abf5c540d478112bcf61dc503a, type: 2}
+  - {fileID: 2100000, guid: 8370fd8cd28cf45ae90292813c749d6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b665d98422ee43688d81b37fd30bad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBall: {fileID: 0}
+  baseBall: {fileID: 4012467447415953057}
   sphereRadius: 0.5
 --- !u!54 &-7432571408827847800
 Rigidbody:
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_cachedSpeed: 0
   triggerArea: {fileID: 8107083263521043753}
   infected: 0
+  useLifeTime: 0
   dead: 0
   debug: 0
   isMedic: 0
@@ -228,7 +229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dacc244ee11804cb48ce71fc9099798b, type: 2}
+  - {fileID: 2100000, guid: e1bd9cac0a9b84e2b98ab48e94643142, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

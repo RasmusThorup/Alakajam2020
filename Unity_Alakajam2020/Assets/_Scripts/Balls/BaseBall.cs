@@ -16,6 +16,7 @@ public class BaseBall : MonoBehaviour
     public int m_cachedSpeed;
     public GameObject triggerArea;
     public bool infected;
+    public bool useLifeTime;
     public bool dead;
     public bool debug = false;
     public bool isMedic;
@@ -49,7 +50,7 @@ public class BaseBall : MonoBehaviour
             }
         }
 
-        if (infected)
+        if (useLifeTime)
         {
             if (m_cachedLifeTime <= 0)
             {
@@ -92,6 +93,7 @@ public class BaseBall : MonoBehaviour
         m_cachedSpeed = infectedSetting.speed;
         GameManager.Instance.scoreManager.IncreaseScore(100);
         infected = true;
+        useLifeTime = true;
         StartCoroutine(ScaleUp());
     }
 
@@ -102,6 +104,8 @@ public class BaseBall : MonoBehaviour
         m_cachedVirusLevel = citizenSetting.virusLevel;
         m_cachedSpeed = citizenSetting.speed;
         GameManager.Instance.scoreManager.DecreaseScore(100);
+        infected = false;
+        useLifeTime = false;
         StartCoroutine(ScaleToNormal());
     }
 
