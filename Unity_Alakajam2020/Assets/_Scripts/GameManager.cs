@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.Rendering;
@@ -44,15 +45,19 @@ public class GameManager : MonoBehaviour
             return; 
         }
 
-        GetCurrentBalls();
+        GetCurrentInfectedBalls();
         
     }
 
 
-    public void GetCurrentBalls()
+    public bool GetCurrentInfectedBalls()
     {
-        int currentInfected = 0;
-        int ballsAmount = waveManager.activeBallList.Count; 
+        float currentInfected = 0;
+        float ballsAmount = waveManager.activeBallList.Count;
+        if (ballsAmount == 0)
+        {
+            return false; 
+        }
         //int currentCitizens; 
         for (int i = 0; i < ballsAmount; i++)
         {
@@ -61,8 +66,11 @@ public class GameManager : MonoBehaviour
                 currentInfected++; 
             }
         }
-        
-        UiManager.percentInfected.SetText("% Infected: " + (currentInfected/ballsAmount)*100);
+
+        float scaledInfected = (currentInfected / ballsAmount) * 100;
+        UiManager.percentInfected.SetText("Infected: " + scaledInfected.ToString("F1") + "%");
+
+        return currentInfected > 0;
     }
 
 

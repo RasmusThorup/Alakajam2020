@@ -1967,6 +1967,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f18da78e9c14b4cf78173e918c2d8ace, type: 3}
+--- !u!114 &1491865602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7369886704078252006, guid: 63152dcbcec96d0438267c19e935ca61,
+    type: 3}
+  m_PrefabInstance: {fileID: 5912945637068300231}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9231334263d8b446896022b72e53dd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1537927473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2289,6 +2301,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5527171189731329131, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: UiManager
+      value: 
+      objectReference: {fileID: 1491865602}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4ce1284979a426f9f37a35f365df71, type: 3}
 --- !u!1001 &1902920961
@@ -2594,6 +2611,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019805169, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033743307262139318, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033743307262139318, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033743307262139318, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033743307262139318, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033743307262139318, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5307001910506112879, guid: 63152dcbcec96d0438267c19e935ca61,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2733,6 +2795,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591341418950149123, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591341418950149123, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591341418950149123, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591341418950149123, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591341418950149123, guid: 63152dcbcec96d0438267c19e935ca61,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63152dcbcec96d0438267c19e935ca61, type: 3}

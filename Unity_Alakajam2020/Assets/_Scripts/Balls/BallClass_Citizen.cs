@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Data.Util;
 using UnityEngine;
 
 public class BallClass_Citizen : BaseBall
@@ -12,6 +13,7 @@ public class BallClass_Citizen : BaseBall
         m_cachedLifeTime = classSetting.lifeTime;
         m_cachedVirusLevel = classSetting.virusLevel;
         m_cachedSpeed = classSetting.speed;
+        base.OnEnable();
     }
 
     protected override void OnDeath()

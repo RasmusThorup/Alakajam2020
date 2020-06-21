@@ -14,6 +14,7 @@ public class BallClass_Splitter : BaseBall
         m_cachedLifeTime = classSetting.lifeTime;
         m_cachedVirusLevel = classSetting.virusLevel;
         m_cachedSpeed = classSetting.speed;
+        base.OnEnable();
     }
 
     
