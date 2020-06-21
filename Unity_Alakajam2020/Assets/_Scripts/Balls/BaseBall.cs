@@ -60,8 +60,10 @@ public class BaseBall : MonoBehaviour
 
         if (useHealth)
         {
-            startHealth = Mathf.Clamp(citizenSetting.virusLevel+Random.Range(-100f,100f),10f,100f);
-            currentHealth = startHealth;
+            //TODO: currently we are using citizensetting.virusLevel. Maybe we should be using m_cachedVirusLevel, because it will always be according to the BallClass.
+            //TODO: The problem is that OnEnable only happens once. And we want this to be set everytime we change BallType. Like going from QuarantineBall to CitizenBall to InfectedBall to CitizenBall to InfectedBall.
+            startHealth = citizenSetting.virusLevel;
+            currentHealth = Random.Range(citizenSetting.virusLevel * 0.1f, citizenSetting.virusLevel);
         }
     }
 
@@ -94,7 +96,7 @@ public class BaseBall : MonoBehaviour
 
         if (useHealth)
         {
-            myBodyMaterial.material.Lerp(infectedBodyMaterial,citizenBodyMaterial,infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/100f,0f,1f)));
+            myBodyMaterial.material.Lerp(infectedBodyMaterial, citizenBodyMaterial, infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/startHealth, 0f, 1f)));
         }
     }
 
