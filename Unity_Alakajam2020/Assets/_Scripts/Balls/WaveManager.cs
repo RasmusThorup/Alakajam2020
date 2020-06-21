@@ -82,7 +82,7 @@ public class WaveManager : MonoBehaviour
 
     public void NewWave()
     {
-        Debug.Log(waveCounter % 2);
+        //Debug.Log(waveCounter % 2);
 
         for (int i = 0; i < ballTypes.Count; i++)
         {
