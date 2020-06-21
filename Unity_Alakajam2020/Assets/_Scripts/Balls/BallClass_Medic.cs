@@ -16,6 +16,7 @@ public class BallClass_Medic : BaseBall
         useLifeTime = false;
         isMedic = true;
         base.OnEnable();
+        isScaling = false;
         StartCoroutine(ScaleUp());
     }
 
@@ -23,7 +24,7 @@ public class BallClass_Medic : BaseBall
     {
         BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-        if (otherBall.infected)
+        if (otherBall.infected || otherBall.isScaling)
         {
             float healChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
             

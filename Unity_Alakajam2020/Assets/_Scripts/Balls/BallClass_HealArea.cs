@@ -24,7 +24,7 @@ public class BallClass_HealArea : BaseBall
     {
         BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-        if (otherBall.infected)
+        if (otherBall.infected || otherBall.isScaling)
         {
             float healChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
             

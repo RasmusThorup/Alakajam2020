@@ -89,9 +89,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7346974814902169019}
   - component: {fileID: 9034370458037841336}
+  - component: {fileID: 3326757670394401694}
   - component: {fileID: -7432571408827847800}
   m_Layer: 0
-  m_Name: BallPrefab_PatientZero
+  m_Name: BallPrefab_CitizenHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,16 +139,63 @@ MonoBehaviour:
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
-  currentHealth: 0
+  startHealth: 0
   m_cachedSpeed: 0
   infected: 0
   useLifeTime: 0
-  useHealth: 0
+  useHealth: 1
   dead: 0
   debug: 0
   isMedic: 0
   animationSpeed: 0.4
-  classSetting: {fileID: 11400000, guid: 53292ce2a5df94142b2b795426b5e2bd, type: 2}
+  infectedColorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 184.5
+      outSlope: 184.5
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.33333334
+      outWeight: 0.004166667
+    - serializedVersion: 3
+      time: 0.8
+      value: 1
+      inSlope: 0.018292753
+      outSlope: 0.018292753
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.42708334
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  classSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+--- !u!114 &3326757670394401694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489296158304646131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b665d98422ee43688d81b37fd30bad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseBall: {fileID: 9034370458037841336}
+  sphereRadius: 0.5
 --- !u!54 &-7432571408827847800
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -192,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 8107083263521043753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7346974814902169019}
   m_RootOrder: 1
