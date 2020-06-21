@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7346974814902169019}
   - component: {fileID: 3326757670394401694}
   - component: {fileID: -7432571408827847800}
+  - component: {fileID: 4854510840167981320}
   - component: {fileID: -8476884334621252468}
   m_Layer: 0
   m_Name: BallPrefab_Quarantine
@@ -144,6 +145,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4854510840167981320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489296158304646131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5812b63b846145969953ba2852abd5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
+  citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  m_cachedLifeTime: 0
+  m_cachedTriggerRadius: 0
+  m_cachedVirusLevel: 0
+  m_cachedSpeed: 0
+  triggerArea: {fileID: 8107083263521043753}
+  infected: 0
+  dead: 0
+  debug: 0
+  isMedic: 0
+  animationSpeed: 0.4
+  classSetting: {fileID: 11400000, guid: 5130296849e6b46939ecb27927899b33, type: 2}
 --- !u!114 &-8476884334621252468
 MonoBehaviour:
   m_ObjectHideFlags: 0
