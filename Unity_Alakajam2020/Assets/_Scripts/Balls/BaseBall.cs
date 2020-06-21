@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class BaseBall : MonoBehaviour
 {
@@ -25,11 +26,15 @@ public class BaseBall : MonoBehaviour
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
     public float m_cachedVirusLevel;
-    public float currentHealth;
+    [ReadOnly]
+    public float currentHealth = 0;
     public float startHealth;
     public int m_cachedSpeed;
-
+    [ReadOnly]
     public bool isScaling;
+    [ReadOnly]
+    public bool isGettingInfected;
+    public GameObject objectAffectingBall;
 
     public bool infected;
     public bool useLifeTime;
@@ -63,7 +68,6 @@ public class BaseBall : MonoBehaviour
     public virtual void OnDisable()
     {
         wavemanager.activeBallList.Remove(this);
-        //Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public virtual void Update()
@@ -90,31 +94,13 @@ public class BaseBall : MonoBehaviour
 
         if (useHealth)
         {
-            myBodyMaterial.material.Lerp(infectedBodyMaterial,citizenBodyMaterial,infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth*0.01f,0f,1f)));
-
-            /*
-            if (infected)
-            {
-                if (currentHealth >= 1 && !isScaling)
-                {
-                    SetHealed();
-                }
-            }
-            else
-            {
-                if (currentHealth <= -1 && !isScaling)
-                {
-                    SetInfected();
-                }
-            }
-            */
+            myBodyMaterial.material.Lerp(infectedBodyMaterial,citizenBodyMaterial,infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/100f,0f,1f)));
         }
     }
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        
-        if (useHealth || isScaling)
+        if (isScaling)
             return;
 
         if (infected)
@@ -125,12 +111,18 @@ public class BaseBall : MonoBehaviour
             {
                 return;
             }
+            if (otherBall.useHealth)
+            {
+                otherBall.objectAffectingBall = gameObject;
+                return;   
+            }
 
             if (!otherBall.infected)
             {
                 float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
                 if (Random.value < infectChance)
                 {
+                    Debug.Log("set Infected");
                     otherBall.SetInfected();
                 }
             }
@@ -139,72 +131,95 @@ public class BaseBall : MonoBehaviour
 
     protected virtual void OnTriggerStay(Collider other)
     {
-        if (isScaling)
-        {
-            return;
-        }
-
         if (infected)
         {
             BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-            if (otherBall == null)
-            {
+            if (otherBall == null || !otherBall.useHealth)
                 return;
-            }
-            else if(!otherBall.useHealth)
+
+            if (otherBall.objectAffectingBall == null)
             {
-                return;
+                otherBall.objectAffectingBall = gameObject;
             }
 
             float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
-            float dmg = infectChance*2;
+            float dmg = infectChance;
 
 
             if (!otherBall.infected)
             {
-                otherBall.currentHealth -= dmg;
+                otherBall.ChangeHealth(-dmg, gameObject);
+                //otherBall.currentHealth -= dmg;
                 
-                if (otherBall.currentHealth < -1)
+                if (otherBall.currentHealth < 0)
                 {
+                    Debug.Log("Current Health "+currentHealth);
                     otherBall.SetInfected();
                 }
 
+            }else
+            {
+                if (otherBall.currentHealth > -otherBall.startHealth*0.5f)
+                {
+                    otherBall.ChangeHealth(-dmg, gameObject);
+                    //otherBall.currentHealth -= dmg;
+                }
             }
         }else if (isMedic)
         {
             BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-            if (otherBall == null)
-            {
+            if (otherBall == null || !otherBall.useHealth)
                 return;
-            }
-            else if(!otherBall.useHealth)
-            {
-                return;
-            }
 
             float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
-            float heal = infectChance*2;
+            float heal = 0.5f;
 
             if (otherBall.infected)
             {
+                otherBall.ChangeHealth(heal, gameObject);
+                //otherBall.currentHealth += heal;
+                
+                if (otherBall.currentHealth > otherBall.startHealth*0.5f)
+                {
+                    otherBall.SetHealed();
+                }
 
-                    otherBall.currentHealth += heal;
-                    
-                    if (otherBall.currentHealth > 1)
-                    {
-                        otherBall.SetHealed();
-                    }
-
+            }else
+            {
+                if (otherBall.currentHealth < otherBall.startHealth)
+                {
+                    otherBall.ChangeHealth(heal, gameObject);
+                    //otherBall.currentHealth += heal;
+                }
             }
             
         }
     }
 
+    public virtual void OnTriggerExit(Collider other)
+    {
+        if (useHealth)
+        {
+            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
+            if (otherBall.objectAffectingBall == gameObject)
+            {
+                otherBall.objectAffectingBall = null;    
+            }   
+        }
+    }
 
     public virtual void SetInfected()
     {
+        if (useHealth)
+        {
+            if (currentHealth > 0)
+            {
+                Debug.Log("I still have life in me!");
+                return;
+            }
+        }
 
         m_cachedTriggerRadius = infectedSetting.triggerRadius;
         m_cachedLifeTime = infectedSetting.lifeTime;
@@ -218,7 +233,6 @@ public class BaseBall : MonoBehaviour
         infected = true;
         useLifeTime = true;
         
-        //StopAllCoroutines();
         StartCoroutine(ScaleUp());
     }
 
@@ -238,14 +252,12 @@ public class BaseBall : MonoBehaviour
         infected = false;
         useLifeTime = false;
         
-        //StopAllCoroutines();
         StartCoroutine(ScaleToNormal());
     }
 
     protected virtual void OnDeath()
     {
         dead = true;
-        //Debug.Log("I Died!");
     }
 
     public IEnumerator ScaleUp()
@@ -254,30 +266,14 @@ public class BaseBall : MonoBehaviour
         {
             yield break;
         }
-        /*
-        if (triggerArea.transform.localScale.x >= m_cachedTriggerRadius)
-        {
-            yield break;
-        }
-    */
+
         Vector3 originalSize = triggerArea.transform.localScale;
-        float elapsedTime = 0f;
 
         isScaling = true;
 
         yield return pTween.To(animationSpeed, 0, 1, t => {
-            triggerArea.transform.localScale = Vector3.Lerp(originalSize, new Vector3(1,1,1) * m_cachedTriggerRadius, t);
+            triggerArea.transform.localScale = Vector3.Lerp(originalSize, new Vector3(m_cachedTriggerRadius,m_cachedTriggerRadius,m_cachedTriggerRadius), t);
         });
-
-        /*
-        while (elapsedTime < animationSpeed)
-        {
-            triggerArea.transform.localScale = Vector3.Lerp(originalSize, new Vector3(1,1,1) * m_cachedTriggerRadius,
-                (elapsedTime / animationSpeed));
-            elapsedTime += Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-        }*/
 
         isScaling = false;
 
@@ -288,21 +284,15 @@ public class BaseBall : MonoBehaviour
     {
         Vector3 originalSize = this.transform.localScale;
         Vector3 targetSize = Vector3.zero;
-        float elapsedTime = 0f;
 
-        while (elapsedTime < animationSpeed)
+        yield return pTween.To(animationSpeed, 0, 1, t => 
         {
-            this.transform.localScale = Vector3.Lerp(originalSize, targetSize,
-                (elapsedTime / animationSpeed));
-            elapsedTime += Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-        }
+            this.transform.localScale = Vector3.Lerp(originalSize, targetSize, t);
+        });
 
         this.transform.localScale = targetSize;
         infected = false;
         this.gameObject.SetActive(false);
-
     }
 
     public IEnumerator ScaleToNormal()
@@ -314,25 +304,23 @@ public class BaseBall : MonoBehaviour
 
         Vector3 originalSize = triggerArea.transform.localScale;
         Vector3 targetSize = new Vector3(1,1,1);
-        float elapsedTime = 0f;
 
         isScaling = true;
 
         yield return pTween.To(animationSpeed, 0, 1, t => {
             triggerArea.transform.localScale = Vector3.Lerp(originalSize, targetSize, t);
         });
-        /*
-        while (elapsedTime < animationSpeed)
-        {
-            triggerArea.transform.localScale = Vector3.Lerp(originalSize, targetSize,
-                (elapsedTime / animationSpeed));
-            elapsedTime += Time.deltaTime;
-
-            yield return new WaitForEndOfFrame();
-        }*/
 
         isScaling = false;
 
         triggerArea.transform.localScale = targetSize;
+    }
+
+    public void ChangeHealth(float amount, GameObject objectAffecting)
+    {
+        if (objectAffectingBall == objectAffecting)
+            currentHealth += amount;
+        return;
+
     }
 }
