@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8370fd8cd28cf45ae90292813c749d6e, type: 2}
+  - {fileID: 2100000, guid: 228c75dc7b57a47a8858ddff9d9ddf04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,11 +158,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
   citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  citizenBodyMaterial: {fileID: 2100000, guid: fe869814bc3c0489095d0bcf179cdaa4, type: 2}
+  citizenAreaMaterial: {fileID: 2100000, guid: 9793f300df781486699403127a9c050c, type: 2}
+  infectedBodyMaterial: {fileID: 2100000, guid: a7fca672a4244411d88df6fe08326352,
+    type: 2}
+  infectedAreaMaterial: {fileID: 2100000, guid: 508802f4c77ec46e9ab04003cc290267,
+    type: 2}
+  triggerArea: {fileID: 8107083263521043753}
+  bodyObj: {fileID: 137340942371784911}
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
   m_cachedSpeed: 0
-  triggerArea: {fileID: 8107083263521043753}
   infected: 0
   useLifeTime: 0
   dead: 0
@@ -229,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1bd9cac0a9b84e2b98ab48e94643142, type: 2}
+  - {fileID: 2100000, guid: 7fd1f9e66cb4b49d4b656cf41bf06bcf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

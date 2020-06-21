@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80470a0d65c504bf0ae291e5db21a055, type: 2}
+  - {fileID: 2100000, guid: 6f1330e1362d440918044b3b19cbb911, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: -7432571408827847800}
   - component: {fileID: -5564504822923187168}
   m_Layer: 0
-  m_Name: PFB_Splitter
+  m_Name: BallPrefab_Splitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,12 +158,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infectedSetting: {fileID: 11400000, guid: 2992f0b2307df48af856d80292735f7a, type: 2}
   citizenSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
+  citizenBodyMaterial: {fileID: 2100000, guid: fe869814bc3c0489095d0bcf179cdaa4, type: 2}
+  citizenAreaMaterial: {fileID: 2100000, guid: 9793f300df781486699403127a9c050c, type: 2}
+  infectedBodyMaterial: {fileID: 2100000, guid: a7fca672a4244411d88df6fe08326352,
+    type: 2}
+  infectedAreaMaterial: {fileID: 2100000, guid: 508802f4c77ec46e9ab04003cc290267,
+    type: 2}
+  triggerArea: {fileID: 8107083263521043753}
+  bodyObj: {fileID: 137340942371784911}
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
   m_cachedSpeed: 0
-  triggerArea: {fileID: 8107083263521043753}
   infected: 0
+  useLifeTime: 0
   dead: 0
   debug: 0
   isMedic: 0
@@ -230,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dacc244ee11804cb48ce71fc9099798b, type: 2}
+  - {fileID: 2100000, guid: 497acbc21db7e4899b046f941a7f08cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
