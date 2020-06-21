@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         get { return _instance; }
     }
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -67,7 +66,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         if (!gameHasStarted)
         {
             return; 
@@ -86,8 +84,7 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-
-
+        
         if (displayScaledInfected < scaledInfected)
         {
             displayScaledInfected++; 
@@ -111,10 +108,8 @@ public class GameManager : MonoBehaviour
                 currentInfected++; 
             }
         }
-
+        
         scaledInfected = (currentInfected / ballsAmount) * 100;
-       
-
         return currentInfected > 0;
     }
 
@@ -124,7 +119,6 @@ public class GameManager : MonoBehaviour
         UiManager.ShowEndScreen(true);
         gameHasStarted = false;
     }
-
     
     public void EnablePlaceableUpgrade(GameObject upgrade)
     {
