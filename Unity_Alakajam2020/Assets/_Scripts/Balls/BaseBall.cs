@@ -29,7 +29,7 @@ public class BaseBall : MonoBehaviour
     public virtual void OnEnable()
     {
         dead = false;
-        //wavemanager.activeBallList.Add(this);
+        wavemanager.activeBallList.Add(this);
         Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
@@ -103,7 +103,7 @@ public class BaseBall : MonoBehaviour
     {
         dead = true;
         Debug.Log("I Died!");
-        //wavemanager.activeBallList.Remove(this);
+        wavemanager.activeBallList.Remove(this);
         Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
