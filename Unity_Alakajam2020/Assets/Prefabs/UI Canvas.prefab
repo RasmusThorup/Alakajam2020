@@ -860,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef900dc30bb5ac44ca0c39dcbfb8f570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.3
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef900dc30bb5ac44ca0c39dcbfb8f570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.3
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef900dc30bb5ac44ca0c39dcbfb8f570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.3
   fadeCurve:
     serializedVersion: 2
     m_Curve:

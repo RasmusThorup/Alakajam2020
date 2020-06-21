@@ -5236,6 +5236,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1300255935399172784, guid: 1c0fcfb640ff10148bfbc28b3436c533,
+        type: 3}
+      propertyPath: generateMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1300255935399172785, guid: 1c0fcfb640ff10148bfbc28b3436c533,
         type: 3}
       propertyPath: m_Name
@@ -5513,6 +5518,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2484468758308264134, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: waveTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484468758308264134, guid: 0f4ce1284979a426f9f37a35f365df71,
+        type: 3}
+      propertyPath: ballTypes.Array.data[0].ballAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5527171189731329129, guid: 0f4ce1284979a426f9f37a35f365df71,
         type: 3}
       propertyPath: m_Name
@@ -5715,6 +5730,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667968623023525625, guid: 0e5fec6c6ca49324da83685733f8d2fa,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667968623023525625, guid: 0e5fec6c6ca49324da83685733f8d2fa,
+        type: 3}
+      propertyPath: orthographic size
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2667968623023525627, guid: 0e5fec6c6ca49324da83685733f8d2fa,
         type: 3}
