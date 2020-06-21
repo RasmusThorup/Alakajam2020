@@ -169,13 +169,23 @@ MonoBehaviour:
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
+  currentHealth: 0
+  startHealth: 0
   m_cachedSpeed: 0
+  isScaling: 0
   infected: 0
   useLifeTime: 0
+  useHealth: 0
   dead: 0
   debug: 0
   isMedic: 0
   animationSpeed: 0.4
+  infectedColorCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   classSetting: {fileID: 11400000, guid: 24be059692fe74a3ab8828163035e201, type: 2}
 --- !u!1 &8107083263521043753
 GameObject:
@@ -205,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 8107083263521043753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.8416, y: 2.8416, z: 2.8416}
   m_Children: []
   m_Father: {fileID: 7346974814902169019}
   m_RootOrder: 1
