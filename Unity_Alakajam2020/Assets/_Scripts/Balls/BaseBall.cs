@@ -8,7 +8,7 @@ public class BaseBall : MonoBehaviour
     public InfectedSettings infectedSetting;
     public InfectedSettings citizenSetting;
 
-    public WaveManager wavemanager;
+    private WaveManager wavemanager;
 
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;

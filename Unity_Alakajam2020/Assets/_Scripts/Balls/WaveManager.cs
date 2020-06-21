@@ -7,13 +7,15 @@ public class BallSpawnValue
 {
     public string ballName;
     public int ballAmount;
-    public float spawnChance;
+    public float additionalBallSpawn;
+    public float ballSpawnChance;
 
-    public BallSpawnValue(string name, int amount, float spawnChance)
+    public BallSpawnValue(string name, int amount, float additionalSpawn, float spawnChance)
     {
         this.ballName = name;
         this.ballAmount = amount;
-        this.spawnChance = spawnChance;
+        this.additionalBallSpawn = additionalSpawn;
+        this.ballSpawnChance = spawnChance;
 
     }
 }
@@ -35,12 +37,9 @@ public class WaveManager : MonoBehaviour
             return;
         }
         _instance = this;
-
-
-
-        currentTime = waveTime;
     }
 
+    [HideInInspector]
     public List<BaseBall> activeBallList = new List<BaseBall>();
     public List<BallSpawnValue> ballTypes = new List<BallSpawnValue>();
 
@@ -49,7 +48,13 @@ public class WaveManager : MonoBehaviour
     public float waveTime;
     private float currentTime;
 
-    public int waveCounter;
+    private int waveCounter;
+
+    public void Start()
+    {
+        //TODO this should be happening in the start game function
+        currentTime = 0;
+    }
 
     public void Update()
     {
@@ -64,10 +69,23 @@ public class WaveManager : MonoBehaviour
 
     public void NewWave()
     {
+        Debug.Log(waveCounter % 2);
 
         for (int i = 0; i < ballTypes.Count; i++)
         {
-            BallPooler.Instance.SpawnBalls(ballTypes[i].ballName, ballTypes[i].ballAmount, timeToSpawn);
+            BallSpawnValue ballSpawn = ballTypes[i];
+            if (waveCounter % ballSpawn.additionalBallSpawn == 0)
+            {
+                ballSpawn.ballAmount++;
+
+            }
+            for (int j = 0; j < ballSpawn.ballAmount; j++)
+            {
+                if (Random.value < ballSpawn.ballSpawnChance)
+                {
+                    BallPooler.Instance.SpawnBalls(ballSpawn.ballName, 1, timeToSpawn);
+                }
+            }
         }
     }
 }
