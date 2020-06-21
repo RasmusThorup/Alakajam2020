@@ -33,6 +33,12 @@ public class BaseBall : MonoBehaviour
         Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
+    public virtual void OnDisable()
+    {
+        wavemanager.activeBallList.Remove(this);
+        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
+    }
+
     public virtual void Update()
     {
         if (debug)
@@ -103,8 +109,6 @@ public class BaseBall : MonoBehaviour
     {
         dead = true;
         Debug.Log("I Died!");
-        wavemanager.activeBallList.Remove(this);
-        Debug.Log("ball list contains: " + wavemanager.activeBallList.Count);
     }
 
     public IEnumerator ScaleUp()
