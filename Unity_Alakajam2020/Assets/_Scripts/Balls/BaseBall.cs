@@ -8,13 +8,25 @@ public class BaseBall : MonoBehaviour
     public InfectedSettings infectedSetting;
     public InfectedSettings citizenSetting;
 
+    public Material citizenBodyMaterial;
+    public Material citizenAreaMaterial;
+
+    public Material infectedBodyMaterial;
+    public Material infectedAreaMaterial;
+
+    private MeshRenderer myBodyMaterial;
+    private MeshRenderer myAreaMaterial;
+
+    public GameObject triggerArea;
+    public GameObject bodyObj;
+
     private WaveManager wavemanager;
 
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
     public float m_cachedVirusLevel;
     public int m_cachedSpeed;
-    public GameObject triggerArea;
+
     public bool infected;
     public bool useLifeTime;
     public bool dead;
@@ -25,6 +37,8 @@ public class BaseBall : MonoBehaviour
     private void Awake()
     {
         wavemanager = WaveManager.instance;
+        myBodyMaterial = bodyObj.GetComponent<MeshRenderer>();
+        myAreaMaterial = triggerArea.GetComponent<MeshRenderer>();
     }
 
     public virtual void OnEnable()
@@ -92,8 +106,13 @@ public class BaseBall : MonoBehaviour
         m_cachedVirusLevel = infectedSetting.virusLevel;
         m_cachedSpeed = infectedSetting.speed;
         GameManager.Instance.scoreManager.IncreaseScore(100);
+
+        myBodyMaterial.material = infectedBodyMaterial;
+        myAreaMaterial.material = infectedAreaMaterial;
+
         infected = true;
         useLifeTime = true;
+
         StartCoroutine(ScaleUp());
     }
 
@@ -104,8 +123,13 @@ public class BaseBall : MonoBehaviour
         m_cachedVirusLevel = citizenSetting.virusLevel;
         m_cachedSpeed = citizenSetting.speed;
         GameManager.Instance.scoreManager.DecreaseScore(100);
+
+        myBodyMaterial.material = citizenBodyMaterial;
+        myAreaMaterial.material = citizenAreaMaterial;
+
         infected = false;
         useLifeTime = false;
+
         StartCoroutine(ScaleToNormal());
     }
 

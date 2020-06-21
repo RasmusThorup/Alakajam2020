@@ -27,10 +27,10 @@ public class BallClass_Quarantine : BaseBall
             return;
         }
 
-        m_cachedTriggerRadius = classSetting.triggerRadius;
-        m_cachedLifeTime = classSetting.lifeTime;
-        m_cachedVirusLevel = classSetting.virusLevel;
-        m_cachedSpeed = classSetting.speed;
+        //m_cachedTriggerRadius = classSetting.triggerRadius;
+        //m_cachedLifeTime = classSetting.lifeTime;
+        //m_cachedVirusLevel = classSetting.virusLevel;
+        //m_cachedSpeed = classSetting.speed;
 
         base.SetInfected();
         m_cachedSpeed = 0;

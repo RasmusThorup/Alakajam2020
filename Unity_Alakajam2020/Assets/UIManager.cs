@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI score;
     public GameObject upgradeUI;
+    public UpgradeSystem upgradeSystem; 
     public GameObject endScreen;
     public GameObject titleScreen; 
     public TextMeshProUGUI endScreenScore; 
@@ -16,8 +17,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI percentInfected; 
 
     public void ShowUpgradeUI(bool visibility)
-    {
+    { 
         upgradeUI.SetActive(visibility);
+       upgradeSystem.RefreshUpgrades();
     }
 
 
@@ -40,7 +42,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.PlaceInfected();
         
     }
-
     public void ReloadGame()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name); 

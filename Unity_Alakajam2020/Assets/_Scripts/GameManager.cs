@@ -109,14 +109,6 @@ public class GameManager : MonoBehaviour
         return currentInfected > 0;
     }
 
-
-    public void UpdateUpgrades()
-    {
-        UiManager.ShowUpgradeUI(true);
-        
-        //Show buy screen. 
-    }
-
     public void EndGame()
     {
         UiManager.ShowUpgradeUI(false);
