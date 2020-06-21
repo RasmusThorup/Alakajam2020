@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using UnityEngine;
@@ -6,8 +7,9 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
 
-    public int currentScore = 0; 
-    
+    public int currentScore = 0;
+    private int displayScore; 
+
     public void CheckScore()
     {
         if (currentScore > GetHighScore())
@@ -21,8 +23,18 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int scoreValue)
     {
         currentScore += scoreValue;
-        GameManager.Instance.UiManager.score.SetText(currentScore.ToString());
+       
     }
+
+    private void Update()
+    {
+        if (displayScore < currentScore)
+        {
+            displayScore++; 
+            GameManager.Instance.UiManager.score.SetText("Score: " + displayScore.ToString());
+        }
+    }
+
 
     public void DecreaseScore(int scoreValue)
     { 
