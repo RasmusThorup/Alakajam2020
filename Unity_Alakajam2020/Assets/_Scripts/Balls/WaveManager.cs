@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    private static WaveManager _instance;
+
     public static WaveManager instance
     {
-        get { return instance; }
+        get { return _instance; }
     }
 
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
+
 
     public List<BaseBall> activeBallList;
 
