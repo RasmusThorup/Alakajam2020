@@ -9,6 +9,15 @@
 							<ObjectRef Name="System" ID="{CD3954C9-28FA-4132-8165-0AEF73CB613C}" WorkUnitID="{545F398D-5AF2-4E82-8F4C-C4C974148C56}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<AuxBus Name="reverb" ID="{8FCE842D-41AC-4F2D-868A-D4E073BEB568}">
+							<ReferenceList>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Plate_Small" ID="{5681977F-CD7F-4D09-AA58-118BEFA48C8C}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
