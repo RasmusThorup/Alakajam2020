@@ -36,6 +36,7 @@ public class BallPooler : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
+                pool.prefab.SetActive(false);
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
