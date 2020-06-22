@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514a10562356343b19e589c85a65b735, type: 3}
   m_Name: BallType_Splitter
   m_EditorClassIdentifier: 
-  baseLifeTime: 15
+  baseLifeTime: 5
   baseTriggerRadius: 5
   baseVirusLevel: 40
   baseSpeed: 12

@@ -29,6 +29,8 @@ public class BaseBall : MonoBehaviour
 
     private WaveManager wavemanager;
 
+    float resetObjectTimer = 2f;
+
     public float m_cachedLifeTime;
     public float m_cachedTriggerRadius;
     public float m_cachedVirusLevel;
@@ -115,6 +117,16 @@ public class BaseBall : MonoBehaviour
                 myBodyMaterial.material.Lerp(infectedBodyMaterial, citizenBodyMaterial, infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/startHealth, 0f, 1f)));
             }
         }
+
+        if (objectAffectingBall)
+        {
+            resetObjectTimer -= Time.deltaTime;
+            if (resetObjectTimer < 0)
+            {
+                objectAffectingBall = null;
+            }
+        }
+
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -230,6 +242,11 @@ public class BaseBall : MonoBehaviour
                 OnDeath();
             }
             
+        }
+
+        if (objectAffectingBall && otherBall.gameObject == objectAffectingBall)
+        { 
+            resetObjectTimer = 1;
         }
     }
 
