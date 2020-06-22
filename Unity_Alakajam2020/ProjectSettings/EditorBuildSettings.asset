@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Rasmus Scene.unity
+    guid: 8e66cbd6ebf1f7b43ad6bc50fd376a0c
   m_configObjects: {}
