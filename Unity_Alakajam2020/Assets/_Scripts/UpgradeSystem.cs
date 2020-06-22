@@ -39,18 +39,18 @@ public class UpgradeSystem : MonoBehaviour
             if(info.isPlaceableObject)
             {
 
-                Debug.Log("Ball has been selected");
+                //Debug.Log("Ball has been selected");
                 GameManager.Instance.EnablePlaceableUpgrade(info.spawn);
                 //Spawn obj. 
             }
             else if(info.spawn)
             {
                 //Is not a placeable object, but will still spawn sometihng.
-                Debug.Log("Shrink level");
+                //Debug.Log("Shrink level");
             }
             else
             {
-                Debug.Log("Upgrade values");
+                //Debug.Log("Upgrade values");
                 switch (info.Type)
                 {
                     case Upgrade.UpgradeType.MoreLevelLessLife:
@@ -72,6 +72,14 @@ public class UpgradeSystem : MonoBehaviour
                         infectedSetting.SetSpeed(info.PosChange);
                         infectedSetting.SetTriggerRadius(info.negChange); 
 
+                        break;
+                    
+                    case Upgrade.UpgradeType.ShrinkPlayableArea:
+                        PlayableArea.Instance.ShrinkArea();
+                        break;
+
+                    case Upgrade.UpgradeType.SpherePlayableArea:
+                        PlayableArea.Instance.SphericalArea();
                         break;
                 }
             }          

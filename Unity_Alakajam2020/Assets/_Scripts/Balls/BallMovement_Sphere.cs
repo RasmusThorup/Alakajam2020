@@ -47,42 +47,6 @@ public class BallMovement_Sphere : MonoBehaviour
             myTransform.position = new Vector3(aX, aY, 0);
         }
 
-        /*
-        gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
-
-        if (currentPos.y-sphereRadius <= gameAreaOuterEdges.z)
-        {
-            //Debug.Log("Ball Outside y lower edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.z+sphereRadius,0);
-            currentDir = Reflect(currentDir, Vector2.up);
-
-        }
-        else if (currentPos.x-sphereRadius <= gameAreaOuterEdges.x)
-        {
-            //Debug.Log("Ball Outside x left edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.x+sphereRadius,myTransform.position.y,0);
-            currentDir = Reflect(currentDir, Vector2.right);
-
-        }
-        else if (currentPos.y+sphereRadius >= gameAreaOuterEdges.w)
-        {
-            //Debug.Log("Ball Outside y upper edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.w-sphereRadius,0);
-            currentDir = Reflect(currentDir, -Vector2.up);
-            
-        }
-        else if (currentPos.x+sphereRadius >= gameAreaOuterEdges.y)
-        {
-            //Debug.Log("Ball Outside x right edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.y-sphereRadius,myTransform.position.y,0);
-            currentDir = Reflect(currentDir, -Vector2.right);           
-        }
-        else
-        {
-            //Ball is inside playable area
-        }
-
-        */
         Vector3 dir = new Vector3 (currentDir.x, currentDir.y,0);
         //myTransform.position += dir * baseBall.m_cachedSpeed * Time.deltaTime;
         myTransform.position += dir * 15 * Time.deltaTime;

@@ -19,7 +19,6 @@ public class Upgrade : ScriptableObject
         public int PosChange;
         public int negChange;
         public GameObject spawn; 
-        //public Sprite Icon;
         public bool isPlaceableObject;
     }
 
@@ -29,7 +28,9 @@ public class Upgrade : ScriptableObject
         MoreLevelLessLife,
         MoreSpeedLessRadus,
         MoreRadiusLessLevel,
-        MoreLifeLessSpeed
+        MoreLifeLessSpeed,
+        ShrinkPlayableArea,
+        SpherePlayableArea
     }
     
     public UpgradeInfo[] upgrades = Array.Empty<UpgradeInfo>();

@@ -9,6 +9,13 @@ public class PlayableArea : MonoBehaviour
     public Vector4 gameAreaEdges;
     public MeshFilter meshFilter;
     public Vector2 gameAreaSize;
+    public Transform sphereAreaEdges;
+    Transform[] trailTrans = new Transform[4];
+    TrailRenderer[] trailRenders = new TrailRenderer[4];
+    Transform trailTopTrans;
+    TrailRenderer trailTop;
+    Transform trailBotTrans;
+    TrailRenderer trailBot;
     float oldAspect;
     private Camera mainCam;
     Mesh mesh;
@@ -25,6 +32,9 @@ public class PlayableArea : MonoBehaviour
     [ReadOnly]
     public bool meshIsShrink;
     [BoxGroup("Mesh Shrink")]
+    [ReadOnly]
+    public bool meshIsSphere;
+    [BoxGroup("Mesh Shrink")]
     public Vector2 shrinkAmount = new Vector2(5, 5);
     [BoxGroup("Mesh Shrink")]
     public float shrinkTransitionTime = 5;
@@ -34,6 +44,15 @@ public class PlayableArea : MonoBehaviour
     public AnimationCurve shrinkCurve;
     [BoxGroup("Mesh Shrink")]
     public float maxEdgeWidth = 0.2f;
+    [BoxGroup("Mesh Shrink")]
+    public Vector2 sphereGameAreaCenter = new Vector2(0,0);
+    [BoxGroup("Mesh Shrink")]
+    public Vector2 sphereGameAreaRadiusMinMax = new Vector2(20,40);
+    [BoxGroup("Mesh Shrink")]
+    public float spinSpeed = 3;
+    [BoxGroup("Mesh Shrink")]
+    [ReadOnly]
+    public float currentSphereGameAreaRadius;
 
     //-- Ugly singleton
     public static PlayableArea Instance;
@@ -42,6 +61,28 @@ public class PlayableArea : MonoBehaviour
         Instance = this;
         lineRenderer.startWidth = 0;
         lineRenderer.endWidth = 0;
+        currentSphereGameAreaRadius = sphereGameAreaRadiusMinMax.y;
+
+        meshIsSphere = false;
+        meshIsShrink = false;
+
+        sphereAreaEdges.localPosition = sphereGameAreaCenter;
+
+        for (int i = 0; i < trailTrans.Length; i++)
+        {
+            trailTrans[i] = sphereAreaEdges.GetChild(i);
+            trailRenders[i] = trailTrans[i].GetComponent<TrailRenderer>();
+        }
+
+        foreach (var trailRender in trailRenders)
+        {
+            trailRender.emitting = false;
+        }
+
+        trailTrans[0].localPosition = new Vector3(0,sphereGameAreaRadiusMinMax.y,0);
+        trailTrans[1].localPosition = new Vector3(0,-sphereGameAreaRadiusMinMax.y,0);
+        trailTrans[2].localPosition = new Vector3(sphereGameAreaRadiusMinMax.y,0,0);
+        trailTrans[3].localPosition = new Vector3(-sphereGameAreaRadiusMinMax.y,0,0);
     }
     //--
 
@@ -57,6 +98,15 @@ public class PlayableArea : MonoBehaviour
         };
 
         mainCam = Camera.main;
+    }
+
+    void Update()
+    {
+        if (meshIsSphere)
+        {
+            //spin the game area
+            sphereAreaEdges.Rotate(0, 0, spinSpeed*Time.deltaTime, Space.Self);
+        }
     }
 
     void LateUpdate()
@@ -145,6 +195,63 @@ public class PlayableArea : MonoBehaviour
         });
 
         meshIsShrink = false;
+        yield break;
+    }
+
+    [Button]
+    public void SphericalArea()
+    {
+        if(meshIsSphere)
+            return;
+        meshIsSphere = true;
+        
+        foreach (var trailRender in trailRenders)
+        {
+            trailRender.emitting = true;
+        }
+
+        StartCoroutine(SphericalArea_Coroutine());
+    }
+
+    IEnumerator SphericalArea_Coroutine()
+    {
+        yield return pTween.To(shrinkTransitionTime, 1, 0, t =>{
+            float a = shrinkCurve.Evaluate(t);            
+            currentSphereGameAreaRadius = Mathf.Lerp(sphereGameAreaRadiusMinMax.x, sphereGameAreaRadiusMinMax.y, a);
+
+            trailTrans[0].localPosition = new Vector3(0,currentSphereGameAreaRadius,0);
+            trailTrans[1].localPosition = new Vector3(0,-currentSphereGameAreaRadius,0);
+            trailTrans[2].localPosition = new Vector3(currentSphereGameAreaRadius,0,0);
+            trailTrans[3].localPosition = new Vector3(-currentSphereGameAreaRadius,0,0);
+            /*
+            float scale = Mathf.Lerp(40, 90, a);
+            sphereAreaEdges.transform.localScale = new Vector3(scale, scale, 5);
+            */
+        });
+
+        yield return new WaitForSeconds(shrinkActiveTime);
+
+        yield return pTween.To(shrinkTransitionTime, 0, 1, t =>{
+            float a = shrinkCurve.Evaluate(t);            
+            currentSphereGameAreaRadius = Mathf.Lerp(sphereGameAreaRadiusMinMax.x, sphereGameAreaRadiusMinMax.y, a);
+
+            trailTrans[0].localPosition = new Vector3(0,currentSphereGameAreaRadius,0);
+            trailTrans[1].localPosition = new Vector3(0,-currentSphereGameAreaRadius,0);
+            trailTrans[2].localPosition = new Vector3(currentSphereGameAreaRadius,0,0);
+            trailTrans[3].localPosition = new Vector3(-currentSphereGameAreaRadius,0,0);
+            /*
+            float scale = Mathf.Lerp(40, 90, a);
+            sphereAreaEdges.transform.localScale = new Vector3(scale, scale, 5);
+            */
+        });
+
+        meshIsSphere = false;
+
+        foreach (var trailRender in trailRenders)
+        {
+            trailRender.emitting = false;
+        }
+
         yield break;
     }
 }

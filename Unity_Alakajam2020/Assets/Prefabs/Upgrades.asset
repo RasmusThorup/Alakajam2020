@@ -63,3 +63,17 @@ MonoBehaviour:
     negChange: 0
     spawn: {fileID: 7489296158304646131, guid: 327d2682ac95c41d2a3025b14f2cea70, type: 3}
     isPlaceableObject: 1
+  - Text: Shrink Playable Area
+    ToolTipText: Shrinks the playable area to make it easier to infect
+    Type: 5
+    PosChange: 0
+    negChange: 0
+    spawn: {fileID: 0}
+    isPlaceableObject: 0
+  - Text: Sphere Playable Area
+    ToolTipText: Turn the playable area into a pretty sphere.
+    Type: 6
+    PosChange: 0
+    negChange: 0
+    spawn: {fileID: 0}
+    isPlaceableObject: 0

@@ -10,7 +10,7 @@ public class BallMovement : MonoBehaviour
     Vector4 gameAreaOuterEdges = new Vector4(0, 40, 0, 25);
     Vector2 currentPos;
     Vector2 currentDir;
-    
+    Vector2 reflectNormal;
 
     void Awake()
     {
@@ -26,43 +26,63 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         currentPos = myTransform.position;
-        gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
 
-        if (currentPos.y-sphereRadius <= gameAreaOuterEdges.z)
+        if (PlayableArea.Instance.meshIsSphere && 
+            Vector2.Distance(currentPos, PlayableArea.Instance.sphereGameAreaCenter) 
+            >= PlayableArea.Instance.currentSphereGameAreaRadius-sphereRadius)
         {
-            //Debug.Log("Ball Outside y lower edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.z+sphereRadius,0);
-            currentDir = Reflect(currentDir, Vector2.up);
+            //Ball outside gamearea, reflect
+            reflectNormal = currentPos - PlayableArea.Instance.sphereGameAreaCenter;
+            currentDir = Reflect(currentDir, reflectNormal);
 
-        }
-        else if (currentPos.x-sphereRadius <= gameAreaOuterEdges.x)
-        {
-            //Debug.Log("Ball Outside x left edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.x+sphereRadius,myTransform.position.y,0);
-            currentDir = Reflect(currentDir, Vector2.right);
+            float vX = currentPos.x - PlayableArea.Instance.sphereGameAreaCenter.x;
+            float vY = currentPos.y - PlayableArea.Instance.sphereGameAreaCenter.y;
+            float magV = Mathf.Sqrt(vX*vX + vY*vY);
+            float aX = PlayableArea.Instance.sphereGameAreaCenter.x + vX / magV * (PlayableArea.Instance.currentSphereGameAreaRadius-sphereRadius);
+            float aY = PlayableArea.Instance.sphereGameAreaCenter.y + vY / magV * (PlayableArea.Instance.currentSphereGameAreaRadius-sphereRadius);
 
-        }
-        else if (currentPos.y+sphereRadius >= gameAreaOuterEdges.w)
-        {
-            //Debug.Log("Ball Outside y upper edge");
-            myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.w-sphereRadius,0);
-            currentDir = Reflect(currentDir, -Vector2.up);
-            
-        }
-        else if (currentPos.x+sphereRadius >= gameAreaOuterEdges.y)
-        {
-            //Debug.Log("Ball Outside x right edge");
-            myTransform.position = new Vector3(gameAreaOuterEdges.y-sphereRadius,myTransform.position.y,0);
-            currentDir = Reflect(currentDir, -Vector2.right);           
+            myTransform.position = new Vector3(aX, aY, 0);
         }
         else
         {
-            //Ball is inside playable area
+            gameAreaOuterEdges = GameManager.Instance.gameAreaEdges;
+
+            if (currentPos.y-sphereRadius <= gameAreaOuterEdges.z)
+            {
+                //Debug.Log("Ball Outside y lower edge");
+                myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.z+sphereRadius,0);
+                currentDir = Reflect(currentDir, Vector2.up);
+
+            }
+            else if (currentPos.x-sphereRadius <= gameAreaOuterEdges.x)
+            {
+                //Debug.Log("Ball Outside x left edge");
+                myTransform.position = new Vector3(gameAreaOuterEdges.x+sphereRadius,myTransform.position.y,0);
+                currentDir = Reflect(currentDir, Vector2.right);
+
+            }
+            else if (currentPos.y+sphereRadius >= gameAreaOuterEdges.w)
+            {
+                //Debug.Log("Ball Outside y upper edge");
+                myTransform.position = new Vector3(myTransform.position.x,gameAreaOuterEdges.w-sphereRadius,0);
+                currentDir = Reflect(currentDir, -Vector2.up);
+                
+            }
+            else if (currentPos.x+sphereRadius >= gameAreaOuterEdges.y)
+            {
+                //Debug.Log("Ball Outside x right edge");
+                myTransform.position = new Vector3(gameAreaOuterEdges.y-sphereRadius,myTransform.position.y,0);
+                currentDir = Reflect(currentDir, -Vector2.right);           
+            }
+            else
+            {
+                //Ball is inside playable area
+            }
         }
+
 
         Vector3 dir = new Vector3 (currentDir.x, currentDir.y,0);
         myTransform.position += dir * baseBall.m_cachedSpeed * Time.deltaTime;
-        //myTransform.position += dir * 10 * Time.deltaTime;
     }
     void init()
     {
