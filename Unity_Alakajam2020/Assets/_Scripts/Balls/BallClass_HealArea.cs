@@ -18,11 +18,22 @@ public class BallClass_HealArea : BaseBall
         isMedic = true;
         base.OnEnable();
         StartCoroutine(ScaleUp());
+
+        float half = m_cachedVirusLevel*0.5f;
+
+        startHealth = Random.Range(half*0.3f,half);
+        currentHealth = startHealth;
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
         BaseBall otherBall = other.GetComponentInParent<BaseBall>();
+
+        if (otherBall.useHealth && otherBall.infected)
+        {
+            base.OnTriggerEnter(other);
+            return;
+        }
 
         if (otherBall.infected || otherBall.isScaling)
         {

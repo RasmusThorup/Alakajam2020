@@ -178,18 +178,52 @@ MonoBehaviour:
     type: 2}
   infectedAreaMaterial: {fileID: 2100000, guid: 508802f4c77ec46e9ab04003cc290267,
     type: 2}
+  medicBodyMaterialHealthy: {fileID: 2100000, guid: e0b25ce2f34c84bfe9249f239f85daa3,
+    type: 2}
+  medicBodyMaterialDie: {fileID: 2100000, guid: 2a4d15cc1c323cf499e89e5773cbab2d,
+    type: 2}
   triggerArea: {fileID: 3010626996797046263}
   bodyObj: {fileID: 6386718722833661969}
   m_cachedLifeTime: 0
   m_cachedTriggerRadius: 0
   m_cachedVirusLevel: 0
+  currentHealth: 0
+  startHealth: 0
   m_cachedSpeed: 0
+  isScaling: 0
+  isGettingInfected: 0
+  objectAffectingBall: {fileID: 0}
   infected: 0
   useLifeTime: 0
+  useHealth: 0
   dead: 0
   debug: 0
   isMedic: 0
   animationSpeed: 0.4
+  infectedColorCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.6383085
+      outSlope: 4.6383085
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.14642857
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.0045290487
+      outSlope: 0.0045290487
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.75357145
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   classSetting: {fileID: 11400000, guid: dee3a7cfe2b1840e0a4ff3f3d568002c, type: 2}
 --- !u!1 &6386718722833661969
 GameObject:

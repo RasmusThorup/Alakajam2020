@@ -18,6 +18,36 @@ public class BallClass_SuperInfected : BaseBall
         useLifeTime = true;
         base.OnEnable();
         StartCoroutine(ScaleUp());
+
+        startHealth = m_cachedLifeTime;
+        currentHealth = m_cachedLifeTime;
+        isSuperinfected = true;
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        BaseBall otherBall = other.GetComponentInParent<BaseBall>();
+        if (otherBall.useHealth && !otherBall.infected)
+        {
+            otherBall.currentHealth = -1;
+            otherBall.SetInfected();
+            /*
+            if (otherBall.objectAffectingBall)
+            {
+                otherBall.objectAffectingBall = null;
+            }*/
+            return;
+        }
+    }
+
+    protected override void OnTriggerStay(Collider other)
+    {
+        return;
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        return;
     }
 
     public override void SetInfected()

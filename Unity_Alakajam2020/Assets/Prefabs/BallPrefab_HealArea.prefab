@@ -164,6 +164,10 @@ MonoBehaviour:
     type: 2}
   infectedAreaMaterial: {fileID: 2100000, guid: 508802f4c77ec46e9ab04003cc290267,
     type: 2}
+  medicBodyMaterialHealthy: {fileID: 2100000, guid: 228c75dc7b57a47a8858ddff9d9ddf04,
+    type: 2}
+  medicBodyMaterialDie: {fileID: 2100000, guid: 2a4d15cc1c323cf499e89e5773cbab2d,
+    type: 2}
   triggerArea: {fileID: 8107083263521043753}
   bodyObj: {fileID: 137340942371784911}
   m_cachedLifeTime: 0
@@ -173,6 +177,8 @@ MonoBehaviour:
   startHealth: 0
   m_cachedSpeed: 0
   isScaling: 0
+  isGettingInfected: 0
+  objectAffectingBall: {fileID: 0}
   infected: 0
   useLifeTime: 0
   useHealth: 0

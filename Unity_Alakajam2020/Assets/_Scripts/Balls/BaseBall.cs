@@ -8,12 +8,18 @@ public class BaseBall : MonoBehaviour
 {
     public InfectedSettings infectedSetting;
     public InfectedSettings citizenSetting;
-
+    [BoxGroup("Materials")]
     public Material citizenBodyMaterial;
+    [BoxGroup("Materials")]
     public Material citizenAreaMaterial;
-
+    [BoxGroup("Materials")]
     public Material infectedBodyMaterial;
+    [BoxGroup("Materials")]
     public Material infectedAreaMaterial;
+    [BoxGroup("Materials")]
+    public Material medicBodyMaterialHealthy;
+    [BoxGroup("Materials")]
+    public Material medicBodyMaterialDie;
 
     private MeshRenderer myBodyMaterial;
     private MeshRenderer myAreaMaterial;
@@ -45,6 +51,8 @@ public class BaseBall : MonoBehaviour
     public float animationSpeed = 0.4f;
 
     public AnimationCurve infectedColorCurve;
+    [HideInInspector]
+    public bool isSuperinfected;
 
     private void Awake()
     {
@@ -62,8 +70,9 @@ public class BaseBall : MonoBehaviour
         {
             //TODO: currently we are using citizensetting.virusLevel. Maybe we should be using m_cachedVirusLevel, because it will always be according to the BallClass.
             //TODO: The problem is that OnEnable only happens once. And we want this to be set everytime we change BallType. Like going from QuarantineBall to CitizenBall to InfectedBall to CitizenBall to InfectedBall.
-            startHealth = citizenSetting.virusLevel;
-            currentHealth = Random.Range(citizenSetting.virusLevel * 0.1f, citizenSetting.virusLevel);
+            //startHealth = citizenSetting.virusLevel;
+            startHealth = m_cachedVirusLevel;
+            currentHealth = Random.Range(m_cachedVirusLevel * 0.1f, m_cachedVirusLevel);
         }
     }
 
@@ -94,9 +103,20 @@ public class BaseBall : MonoBehaviour
             m_cachedLifeTime -= Time.deltaTime;
         }
 
+        if (isMedic)
+        {
+            myBodyMaterial.material.Lerp(medicBodyMaterialDie, medicBodyMaterialHealthy, Mathf.Clamp(currentHealth/startHealth, 0f, 1f)); 
+        }
         if (useHealth)
         {
-            myBodyMaterial.material.Lerp(infectedBodyMaterial, citizenBodyMaterial, infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/startHealth, 0f, 1f)));
+            if (infected)
+            {
+                myBodyMaterial.material.Lerp(infectedBodyMaterial, citizenBodyMaterial, infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/startHealth*0.5f, 0f, 1f)));
+            }
+            else
+            {
+                myBodyMaterial.material.Lerp(infectedBodyMaterial, citizenBodyMaterial, infectedColorCurve.Evaluate(Mathf.Clamp(currentHealth/startHealth, 0f, 1f)));
+            }
         }
     }
 
@@ -104,18 +124,19 @@ public class BaseBall : MonoBehaviour
     {
         if (isScaling)
             return;
+        
+        BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
         if (infected)
         {
-            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
-
             if (otherBall == null || otherBall.isMedic)
             {
                 return;
             }
-            if (otherBall.useHealth)
+
+            if (otherBall.useHealth && !otherBall.infected)
             {
-                otherBall.objectAffectingBall = gameObject;
+                //otherBall.objectAffectingBall = gameObject;
                 return;   
             }
 
@@ -128,22 +149,28 @@ public class BaseBall : MonoBehaviour
                     otherBall.SetInfected();
                 }
             }
+        }else if (isMedic)
+        {
+            if (otherBall.useHealth && otherBall.infected && !otherBall.isSuperinfected)
+            {
+                otherBall.objectAffectingBall = gameObject;
+            }
         }
     }
 
     protected virtual void OnTriggerStay(Collider other)
     {
-        if (infected)
-        {
-            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
+        BaseBall otherBall = other.GetComponentInParent<BaseBall>();
 
-            if (otherBall == null || !otherBall.useHealth)
+        if (otherBall == null || !otherBall.useHealth)
                 return;
 
-            if (otherBall.objectAffectingBall == null)
-            {
+        
+
+        if (infected)
+        {
+            if (!otherBall.objectAffectingBall && !otherBall.infected)
                 otherBall.objectAffectingBall = gameObject;
-            }
 
             float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
             float dmg = infectChance;
@@ -156,7 +183,7 @@ public class BaseBall : MonoBehaviour
                 
                 if (otherBall.currentHealth < 0)
                 {
-                    Debug.Log("Current Health "+currentHealth);
+                    //Debug.Log("Current Health "+currentHealth);
                     otherBall.SetInfected();
                 }
 
@@ -170,10 +197,11 @@ public class BaseBall : MonoBehaviour
             }
         }else if (isMedic)
         {
-            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
-
-            if (otherBall == null || !otherBall.useHealth)
+            if (otherBall.isSuperinfected)
                 return;
+
+            if (!otherBall.objectAffectingBall && otherBall.infected)
+                otherBall.objectAffectingBall = gameObject;
 
             float infectChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
             float heal = 0.5f;
@@ -181,11 +209,13 @@ public class BaseBall : MonoBehaviour
             if (otherBall.infected)
             {
                 otherBall.ChangeHealth(heal, gameObject);
+                currentHealth -= heal*2f; //Damage medics when healing other balls
                 //otherBall.currentHealth += heal;
                 
                 if (otherBall.currentHealth > otherBall.startHealth*0.5f)
                 {
                     otherBall.SetHealed();
+                    //Debug.Log("Current Health Healed "+otherBall.currentHealth);
                 }
 
             }else
@@ -193,21 +223,27 @@ public class BaseBall : MonoBehaviour
                 if (otherBall.currentHealth < otherBall.startHealth)
                 {
                     otherBall.ChangeHealth(heal, gameObject);
+                    //Debug.Log("Healing OtherBall");
                     //otherBall.currentHealth += heal;
                 }
+            }
+
+            if (currentHealth < 0)
+            {
+                OnDeath();
             }
             
         }
     }
 
-    public virtual void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
+        BaseBall otherBall = other.GetComponentInParent<BaseBall>();
         if (useHealth)
         {
-            BaseBall otherBall = other.GetComponentInParent<BaseBall>();
-            if (otherBall.objectAffectingBall == gameObject)
+            if (otherBall.gameObject == objectAffectingBall)
             {
-                otherBall.objectAffectingBall = null;    
+                objectAffectingBall = null;    
             }   
         }
     }
@@ -323,6 +359,5 @@ public class BaseBall : MonoBehaviour
         if (objectAffectingBall == objectAffecting)
             currentHealth += amount;
         return;
-
     }
 }

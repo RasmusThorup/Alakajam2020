@@ -187,6 +187,10 @@ MonoBehaviour:
     prefab: {fileID: 7489296158304646131, guid: 0f02025c950204706b66b92a7d3c1743,
       type: 3}
     size: 50
+  - tag: Debug
+    prefab: {fileID: 7489296158304646131, guid: 9454c5811645dde45877d39d6358061f,
+      type: 3}
+    size: 70
 --- !u!114 &2484468758308264134
 MonoBehaviour:
   m_ObjectHideFlags: 0
