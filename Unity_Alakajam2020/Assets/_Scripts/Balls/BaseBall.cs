@@ -68,9 +68,6 @@ public class BaseBall : MonoBehaviour
 
         if (useHealth)
         {
-            //TODO: currently we are using citizensetting.virusLevel. Maybe we should be using m_cachedVirusLevel, because it will always be according to the BallClass.
-            //TODO: The problem is that OnEnable only happens once. And we want this to be set everytime we change BallType. Like going from QuarantineBall to CitizenBall to InfectedBall to CitizenBall to InfectedBall.
-            //startHealth = citizenSetting.virusLevel;
             startHealth = m_cachedVirusLevel;
             currentHealth = Random.Range(m_cachedVirusLevel * 0.1f, m_cachedVirusLevel);
         }
@@ -305,7 +302,6 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator ScaleUp()
     {
-
         if (isScaling)
         {
             yield break;

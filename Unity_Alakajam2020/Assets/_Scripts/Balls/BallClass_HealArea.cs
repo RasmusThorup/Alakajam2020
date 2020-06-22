@@ -35,6 +35,11 @@ public class BallClass_HealArea : BaseBall
             return;
         }
 
+        if (otherBall.isMedic)
+        {
+            return;
+        }
+
         if (otherBall.infected || otherBall.isScaling)
         {
             float healChance = m_cachedVirusLevel / (m_cachedVirusLevel + otherBall.m_cachedVirusLevel);
@@ -45,11 +50,11 @@ public class BallClass_HealArea : BaseBall
             }
             else
             {
+                Debug.Log("KILL");
                 OnDeath();
             }
         }
     }
-
 
     public override void SetInfected()
     {

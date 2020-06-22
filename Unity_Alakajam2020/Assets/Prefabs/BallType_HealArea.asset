@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BallType_HealArea
   m_EditorClassIdentifier: 
   baseLifeTime: 25
-  baseTriggerRadius: 12
+  baseTriggerRadius: 10
   baseVirusLevel: 150
   baseSpeed: 0
-  lifeTime: 10
-  triggerRadius: 5
-  virusLevel: 100
-  speed: 5
+  lifeTime: 25
+  triggerRadius: 6
+  virusLevel: 150
+  speed: 0
