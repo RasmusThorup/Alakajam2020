@@ -374,17 +374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2484468758308264134, guid: 0f4ce1284979a426f9f37a35f365df71,
-        type: 3}
-      propertyPath: waveTime
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538842191129215111, guid: 0f4ce1284979a426f9f37a35f365df71,
-        type: 3}
-      propertyPath: pools.Array.data[3].prefab
-      value: 
-      objectReference: {fileID: 7489296158304646131, guid: 0f02025c950204706b66b92a7d3c1743,
-        type: 3}
     - target: {fileID: 5527171189731329129, guid: 0f4ce1284979a426f9f37a35f365df71,
         type: 3}
       propertyPath: m_Name
