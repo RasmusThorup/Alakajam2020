@@ -194,7 +194,17 @@
 				</Folder>
 				<Folder Name="Environment" ID="{B07C29BB-A111-46F9-83EA-77ACC977CB8C}" ShortID="487410460">
 					<ChildrenList>
-						<Event Name="env_level" ID="{CF6A92EC-CFE8-400E-9F34-AAA679C58940}"/>
+						<Event Name="env_level" ID="{CF6A92EC-CFE8-400E-9F34-AAA679C58940}">
+							<ChildrenList>
+								<Action Name="" ID="{6E52B81B-1B2A-4A2E-B6FD-A987A5D16219}" ShortID="400885680">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambience" ID="{EE65562E-F4EE-4179-850F-78A7FFE97329}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

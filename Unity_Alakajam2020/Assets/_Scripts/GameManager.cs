@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UiManager.ShowTitleScreen(true);
+        AkSoundEngine.PostEvent("env_level", gameObject);
     }
 
     public void PlaceInfected()
