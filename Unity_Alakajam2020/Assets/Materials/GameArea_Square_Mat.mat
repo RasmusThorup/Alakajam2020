@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GameArea_Square_Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 23214848cd8af6649a271a83b0936c06,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_25E07FA9: 0.369
+    - Vector1_744D0AB5: 5.7
+    - Vector1_953D1CD0: 4.97
+    - Vector1_D644D4B1: 5.47
+    m_Colors:
+    - Color_E6A3C5F7: {r: 0, g: 0.110940374, b: 0.47058824, a: 1}
+    - Vector2_F3694EF2: {r: 1.78, g: 6.3, b: 0, a: 0}

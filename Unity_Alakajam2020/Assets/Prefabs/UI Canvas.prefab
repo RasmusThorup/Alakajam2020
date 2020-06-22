@@ -345,24 +345,12 @@ MonoBehaviour:
   Choices:
   - Text: {fileID: 1378854682}
     ToolTipText: {fileID: 1019805169}
-    Outer: {fileID: 1497216244}
-    Middle: {fileID: 1497216244}
-    Inner: {fileID: 1497216244}
-    Icon: {fileID: 1497216244}
     Button: {fileID: 1497216243}
   - Text: {fileID: 1954623563}
     ToolTipText: {fileID: 8591341418950149123}
-    Outer: {fileID: 614980967}
-    Middle: {fileID: 44234073}
-    Inner: {fileID: 614980967}
-    Icon: {fileID: 614980967}
     Button: {fileID: 614980966}
   - Text: {fileID: 337167479}
     ToolTipText: {fileID: 1033743307262139318}
-    Outer: {fileID: 44234073}
-    Middle: {fileID: 44234073}
-    Inner: {fileID: 44234073}
-    Icon: {fileID: 44234073}
     Button: {fileID: 44234072}
 --- !u!1 &614980964
 GameObject:
@@ -1272,6 +1260,7 @@ GameObject:
   - component: {fileID: 5922789161571093721}
   - component: {fileID: 1191890834591680445}
   - component: {fileID: 8342742544898696897}
+  - component: {fileID: 872129087}
   m_Layer: 5
   m_Name: BetweenWaves
   m_TagString: Untagged
@@ -1336,6 +1325,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &872129087
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46388799458435688}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &589032078506913860
 GameObject:
   m_ObjectHideFlags: 0

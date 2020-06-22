@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using NaughtyAttributes;
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -13,11 +14,7 @@ public class UpgradeSystem : MonoBehaviour
     public struct Choice
     {
         public TextMeshProUGUI Text;
-        public TextMeshProUGUI ToolTipText; 
-        public Image Outer;
-        public Image Middle;
-        public Image Inner;
-        public Image Icon;
+        public TextMeshProUGUI ToolTipText;
         public Button Button;
     }
     
@@ -89,10 +86,9 @@ public class UpgradeSystem : MonoBehaviour
         });
     }
     
-    
+    [Button]
     public void RefreshUpgrades()
     {
-
         if (Settings.upgrades.Length == 0)
         {
             return; 
@@ -113,13 +109,5 @@ public class UpgradeSystem : MonoBehaviour
         PopulateChoice(Choices[0], Settings.upgrades[m_Choice1]);
         PopulateChoice(Choices[1], Settings.upgrades[m_Choice2]);
         PopulateChoice(Choices[2], Settings.upgrades[m_Choice3]);
-
-        //Choices[1].Button.Select();
     }
-
-    
-    
-    
-    
-    
 }

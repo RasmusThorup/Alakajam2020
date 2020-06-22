@@ -66,7 +66,7 @@ public class PlayableArea : MonoBehaviour
         meshIsSphere = false;
         meshIsShrink = false;
 
-        sphereAreaEdges.localPosition = sphereGameAreaCenter;
+        sphereAreaEdges.localPosition = new Vector3(sphereGameAreaCenter.x, sphereGameAreaCenter.y, 0.8f);
 
         for (int i = 0; i < trailTrans.Length; i++)
         {
@@ -131,17 +131,16 @@ public class PlayableArea : MonoBehaviour
 
         vertices = new Vector3[]
         {
-            new Vector3 (gameAreaEdges.x,gameAreaEdges.z,0),
-            new Vector3 (gameAreaEdges.x,gameAreaEdges.w,0),
-            new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0),
-            new Vector3 (gameAreaEdges.y,gameAreaEdges.z,0)
+            new Vector3 (gameAreaEdges.x,gameAreaEdges.z,0f),
+            new Vector3 (gameAreaEdges.x,gameAreaEdges.w,0f),
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.w,0f),
+            new Vector3 (gameAreaEdges.y,gameAreaEdges.z,0f)
         };
 
         lineRenderer.SetPositions(vertices);
 
         if (!generateMesh)
             return;
-
 
         uv = new Vector2[vertices.Length];
         for (int i = 0; i < uv.Length; i++)

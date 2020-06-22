@@ -17,6 +17,11 @@ public class TooltipFadeup : MonoBehaviour
         currentAlpha = canvasGroup.alpha;
     } 
 
+    void OnDisable()
+    {
+        ForceHideTooltip();
+    }
+
     public void ShowTooltip()
     {
         StopAllCoroutines();
@@ -27,6 +32,12 @@ public class TooltipFadeup : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(HideTooltip_Routine());
+    }
+
+    public void ForceHideTooltip()
+    {
+        canvasGroup.alpha = 0;
+        currentAlpha = 0;
     }
 
     IEnumerator ShowTooltip_Routine()

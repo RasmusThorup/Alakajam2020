@@ -22,9 +22,13 @@ public class UIManager : MonoBehaviour
     private float cachedTimer; 
     private bool waveCounterVisible;
 
+    CanvasGroup uIUpgradeCanvas;
+
+
     private void Start()
     {
-        cachedTimer = waveCounterTimer; 
+        cachedTimer = waveCounterTimer;
+        uIUpgradeCanvas = upgradeUI.GetComponent<CanvasGroup>();
     }
 
     private void Update()
@@ -51,9 +55,26 @@ public class UIManager : MonoBehaviour
     }
 
     public void ShowUpgradeUI(bool visibility)
-    { 
+    {
+        StartCoroutine(ShowUpgradeUI_Coroutine(visibility));
+        //upgradeUI.SetActive(visibility);
+        //upgradeSystem.RefreshUpgrades();
+    }
+
+    IEnumerator ShowUpgradeUI_Coroutine(bool visibility)
+    {
+        if (visibility)
+            upgradeSystem.RefreshUpgrades();
+
+        float endVal = visibility ? 1 : 0;
+        uIUpgradeCanvas.alpha = 1-endVal;
+
+        yield return pTween.To(.3f, 1-endVal,endVal, t =>
+        {
+            uIUpgradeCanvas.alpha = t;
+        });
+
         upgradeUI.SetActive(visibility);
-       upgradeSystem.RefreshUpgrades();
     }
     
     public void ShowEndScreen(bool visibility)
