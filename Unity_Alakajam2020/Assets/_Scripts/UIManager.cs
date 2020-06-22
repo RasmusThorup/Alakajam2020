@@ -17,10 +17,15 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI endScreenHighScore;
     public TextMeshProUGUI percentInfected;
     public TextMeshProUGUI menuHighScore;
+    public TextMeshProUGUI timerText;
+    float startTime = -1;
     public GameObject waveCounter;
-    public float waveCounterTimer = 4f;
+    public TextMeshProUGUI waveCounterText;
+    public float waveCounterTimer = 3f;
     private float cachedTimer; 
     private bool waveCounterVisible;
+
+    int waveNumber;
 
     CanvasGroup uIUpgradeCanvas;
 
@@ -42,16 +47,42 @@ public class UIManager : MonoBehaviour
             }
 
             cachedTimer -= Time.deltaTime; 
-
         }
+
+        /*
+        if (GameManager.Instance.gameHasStarted)
+        {
+            if (startTime == -1)
+            {
+                startTime = Time.timeSinceLevelLoad;
+            }
+
+            float timeText;
+            timeText = Time.timeSinceLevelLoad-startTime;
+            timerText.SetText(timeText.ToString("F2"));
+        }else
+        {
+            if (startTime != -1)
+            {
+                startTime = -1;
+                timerText.SetText("");
+            }
+
+        }*/
+
+        //timerText.enabled = !waveCounterVisible;
     }
 
     public void ShowWaveTimer(bool visibility)
-    {
-        
+    {   
+        if (visibility)
+        {
+            waveNumber++;
+            waveCounterText.SetText("Wave "+waveNumber.ToString());
+        }
+
         waveCounter.SetActive(visibility);
         waveCounterVisible = visibility;
-
     }
 
     public void ShowUpgradeUI(bool visibility)

@@ -51,7 +51,8 @@ public class WaveManager : MonoBehaviour
     public int firstWaveCitizentsAmount;
     [BoxGroup("First Wave Setup")]
     public float firstWaveSpawnTime = 3;
-    private float currentTime;
+    [HideInInspector]
+    public float currentTime;
 
     private int waveCounter;
 

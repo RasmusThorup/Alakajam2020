@@ -241,7 +241,12 @@ public class BaseBall : MonoBehaviour
         BaseBall otherBall = other.GetComponentInParent<BaseBall>();
         if (useHealth)
         {
-            if (otherBall.gameObject == objectAffectingBall)
+            if (otherBall == null)
+            {
+                return;
+            }
+            
+            if (objectAffectingBall && otherBall.gameObject == objectAffectingBall)
             {
                 objectAffectingBall = null;    
             }   
