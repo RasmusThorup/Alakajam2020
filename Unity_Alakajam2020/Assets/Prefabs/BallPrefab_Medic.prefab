@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4373121270202131813
 Transform:
   m_ObjectHideFlags: 0
@@ -224,6 +224,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isSuperinfected: 0
   classSetting: {fileID: 11400000, guid: dee3a7cfe2b1840e0a4ff3f3d568002c, type: 2}
 --- !u!1 &6386718722833661969
 GameObject:

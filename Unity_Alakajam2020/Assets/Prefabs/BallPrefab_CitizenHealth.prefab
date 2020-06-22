@@ -97,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7346974814902169019
 Transform:
   m_ObjectHideFlags: 0
@@ -134,6 +134,8 @@ MonoBehaviour:
     type: 2}
   infectedAreaMaterial: {fileID: 2100000, guid: 508802f4c77ec46e9ab04003cc290267,
     type: 2}
+  medicBodyMaterialHealthy: {fileID: 0}
+  medicBodyMaterialDie: {fileID: 0}
   triggerArea: {fileID: 8107083263521043753}
   bodyObj: {fileID: 137340942371784911}
   m_cachedLifeTime: 0
@@ -185,6 +187,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isSuperinfected: 0
   classSetting: {fileID: 11400000, guid: b1019ff1b300d4ba6a9a8cfedc812648, type: 2}
 --- !u!114 &3326757670394401694
 MonoBehaviour:

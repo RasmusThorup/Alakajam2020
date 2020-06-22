@@ -91,7 +91,7 @@ public class BaseBall : MonoBehaviour
             }
         }
 
-        if (useLifeTime)
+        if (useLifeTime && GameManager.Instance.gameHasStarted)
         {
             if (m_cachedLifeTime <= 0)
             {
@@ -305,10 +305,13 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator ScaleUp()
     {
+
         if (isScaling)
         {
             yield break;
         }
+
+        AkSoundEngine.PostEvent("SFX_Ball_ScaleUp", this.gameObject);
 
         Vector3 originalSize = triggerArea.transform.localScale;
 
@@ -325,6 +328,9 @@ public class BaseBall : MonoBehaviour
 
     public IEnumerator DeathAnimation()
     {
+
+        AkSoundEngine.PostEvent("SFX_Ball_Death", this.gameObject);
+
         Vector3 originalSize = this.transform.localScale;
         Vector3 targetSize = Vector3.zero;
 
@@ -344,6 +350,8 @@ public class BaseBall : MonoBehaviour
         {
             yield break;
         }
+
+        AkSoundEngine.PostEvent("SFX_Ball_ScaleDown", this.gameObject);
 
         Vector3 originalSize = triggerArea.transform.localScale;
         Vector3 targetSize = new Vector3(1,1,1);

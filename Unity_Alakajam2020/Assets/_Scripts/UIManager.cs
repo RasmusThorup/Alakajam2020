@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public UpgradeSystem upgradeSystem; 
     public GameObject endScreen;
     public GameObject titleScreen; 
+    public GameObject tutorialScreen;
     public TextMeshProUGUI endScreenScore; 
     public TextMeshProUGUI endScreenHighScore;
     public TextMeshProUGUI percentInfected;
@@ -132,7 +133,14 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name); 
     }
-    
-    
+
+    public void OnTutorialPressed()
+    {
+        titleScreen.SetActive(false);
+        tutorialScreen.SetActive(true);
+        score.enabled = false;
+        percentInfected.enabled = false;
+
+    }
 
 }

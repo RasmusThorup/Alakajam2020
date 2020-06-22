@@ -26,7 +26,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="SFX_Ball_Dead" ID="{22DD9146-C6BC-4EBC-A4BD-78C9BB90A409}">
+						<Event Name="SFX_Ball_Death" ID="{22DD9146-C6BC-4EBC-A4BD-78C9BB90A409}">
 							<ChildrenList>
 								<Action Name="" ID="{1AFE02FA-A34A-46A5-9324-275108943ACF}" ShortID="717487622">
 									<PropertyList>
@@ -60,6 +60,48 @@
 									</ReferenceList>
 								</Action>
 								<Action Name="" ID="{975ED2DA-BC08-45A2-BC66-B15D9A72CE6F}" ShortID="1070426875">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_Ball_ScaleUp" ID="{F6BDB704-36CB-46E5-8B90-C3F8BFDE6FED}">
+							<ChildrenList>
+								<Action Name="" ID="{BB134C71-4458-458A-8031-E2C49383BB14}" ShortID="43682061">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{2B7F1C68-C98C-438A-9B2B-379A7C8C210F}" ShortID="6189524">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFX_Ball_ScaleDown" ID="{EF144C5E-309A-40FC-833C-7FC37DC58302}">
+							<ChildrenList>
+								<Action Name="" ID="{F76078F6-6DE8-4F47-A1F3-29019F4E8FC7}" ShortID="136779621">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{43E73482-E8B4-415B-B3C9-4ABB0703D480}" ShortID="860958420">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Scat_Test" ID="{8689CA84-9EDC-4A31-81E7-8BF01A0B5CAE}" WorkUnitID="{A0C31C35-B3F0-4293-ADD0-A54AFC71CC7A}"/>
